@@ -10,3 +10,4 @@ run_baseline.sh
 run_hardened.sh
 run_pg.sh
 BRIEF.md
+buildx_sign_attest.sh

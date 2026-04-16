@@ -7,11 +7,11 @@
 .gitignore
 .pytest_cache/
 .venv/
-BRIEF.mc
+BRIEF.md
 compose.yaml
 Dockerfile
 README.md
-.tests/
+tests/
 run_baseline.sh
 run_hardened.sh
 run_pg.sh

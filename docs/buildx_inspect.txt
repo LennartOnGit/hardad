@@ -1,0 +1,15 @@
+Name:      docker.io/lennartondocker/hardad:hardened
+MediaType: application/vnd.oci.image.index.v1+json
+Digest:    sha256:25d230885b2be47ec05fcdc071ece0670cb31d81d2dfd5508e8af363471c7c57
+           
+Manifests: 
+  Name:        docker.io/lennartondocker/hardad:hardened@sha256:7cfc30b402da3bb7ff53a66a62cded5bacc294ebce7897e5e61904051b78efd1
+  MediaType:   application/vnd.oci.image.manifest.v1+json
+  Platform:    linux/arm64
+               
+  Name:        docker.io/lennartondocker/hardad:hardened@sha256:2ff2519fbb1fd715813971a3ab411f35bd6f014fb1551ba166500afb76fd2ef7
+  MediaType:   application/vnd.oci.image.manifest.v1+json
+  Platform:    unknown/unknown
+  Annotations: 
+    vnd.docker.reference.digest: sha256:7cfc30b402da3bb7ff53a66a62cded5bacc294ebce7897e5e61904051b78efd1
+    vnd.docker.reference.type:   attestation-manifest

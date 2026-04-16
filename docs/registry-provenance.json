@@ -1,0 +1,829 @@
+{
+  "SLSA": {
+    "buildDefinition": {
+      "buildType": "https://github.com/moby/buildkit/blob/master/docs/attestations/slsa-definitions.md",
+      "externalParameters": {
+        "configSource": {
+          "path": "Dockerfile_hardened"
+        },
+        "request": {
+          "frontend": "dockerfile.v0",
+          "locals": [
+            {
+              "name": "context"
+            },
+            {
+              "name": "dockerfile"
+            }
+          ]
+        }
+      },
+      "internalParameters": {
+        "buildConfig": {
+          "digestMapping": {
+            "sha256:3b811ce9419be5c0c00f75beb7676143cb4112499140e8b9740f6b031e5e20cb": "step4",
+            "sha256:70ef29bdd98bf6c3d194a3f1b0cd5922c88ed4bd41e5520500c4816fee625989": "step1",
+            "sha256:782015a40dca3d6b08a6da3c9169a738f216801d8f655a11061995c541a844d5": "step9",
+            "sha256:79708fc53c0dda98a8c3f6f8238059a2ed679d5a01859a15baf37fc5fd82d211": "step2",
+            "sha256:7bc256c3650f140ff1ee30915373c087668de6482ed31407eac6c04cb1ef0998": "step0",
+            "sha256:83a437e5cd940ebf65e0f199b248d872e388acfeb694a3fb742fe0a5854df722": "step5",
+            "sha256:849c99645e971fdba3de78492091d97fb87b77c72e7d8d1b5b45f0744058fd16": "step6",
+            "sha256:8954489f6ba9ef532b2b8dd9cf4d72fa1795e95fa29bfca3dcf4464c8762fc76": "step10",
+            "sha256:b8fad07af512678848f7a57568a85d5347b52febf226e23282a940f5a359385d": "step7",
+            "sha256:c34baf42460919271da11ef02e0b63300adcab557b1d4d3a939574bd0d3e9466": "step8",
+            "sha256:ef083fa03e0e53a9fab164f06446b65e83d332ea6c41d8fd0d4c1a4f1bd7591f": "step3"
+          },
+          "llbDefinition": [
+            {
+              "id": "step0",
+              "op": {
+                "Op": {
+                  "source": {
+                    "identifier": "docker-image://dhi.io/python:3.12@sha256:35924be4174348d4a0bdcf3bfaba81079cbb1faa52821611c71a6f50b3006572"
+                  }
+                },
+                "constraints": {},
+                "platform": {
+                  "Architecture": "arm64",
+                  "OS": "linux"
+                }
+              }
+            },
+            {
+              "id": "step1",
+              "inputs": [
+                "step0:0"
+              ],
+              "op": {
+                "Op": {
+                  "file": {
+                    "actions": [
+                      {
+                        "Action": {
+                          "mkdir": {
+                            "makeParents": true,
+                            "mode": 493,
+                            "owner": {
+                              "user": {
+                                "User": {
+                                  "byName": {
+                                    "name": "nonroot"
+                                  }
+                                }
+                              }
+                            },
+                            "path": "/app",
+                            "timestamp": -1
+                          }
+                        },
+                        "input": 0,
+                        "output": 0,
+                        "secondaryInput": -1
+                      }
+                    ]
+                  }
+                },
+                "constraints": {}
+              }
+            },
+            {
+              "id": "step2",
+              "op": {
+                "Op": {
+                  "source": {
+                    "identifier": "docker-image://dhi.io/python:3.12-dev@sha256:5a88d78e7e961b911b5f83e77979c8b86f8952eaa5726eca9e61fa7ee313de07"
+                  }
+                },
+                "constraints": {},
+                "platform": {
+                  "Architecture": "arm64",
+                  "OS": "linux"
+                }
+              }
+            },
+            {
+              "id": "step3",
+              "inputs": [
+                "step2:0"
+              ],
+              "op": {
+                "Op": {
+                  "file": {
+                    "actions": [
+                      {
+                        "Action": {
+                          "mkdir": {
+                            "makeParents": true,
+                            "mode": 493,
+                            "owner": {
+                              "user": {
+                                "User": {}
+                              }
+                            },
+                            "path": "/app",
+                            "timestamp": -1
+                          }
+                        },
+                        "input": 0,
+                        "output": 0,
+                        "secondaryInput": -1
+                      }
+                    ]
+                  }
+                },
+                "constraints": {}
+              }
+            },
+            {
+              "id": "step4",
+              "inputs": [
+                "step3:0"
+              ],
+              "op": {
+                "Op": {
+                  "exec": {
+                    "meta": {
+                      "args": [
+                        "/bin/sh",
+                        "-c",
+                        "pip install --no-cache-dir uv"
+                      ],
+                      "cwd": "/app",
+                      "env": [
+                        "DEBIAN_FRONTEND=noninteractive",
+                        "LD_LIBRARY_PATH=/opt/python/lib",
+                        "PATH=/opt/python/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                        "PYTHON_VERSION=3.12.13",
+                        "SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt"
+                      ],
+                      "removeMountStubsRecursive": true,
+                      "user": "root"
+                    },
+                    "mounts": [
+                      {
+                        "dest": "/"
+                      }
+                    ]
+                  }
+                },
+                "constraints": {},
+                "platform": {
+                  "Architecture": "arm64",
+                  "OS": "linux"
+                }
+              }
+            },
+            {
+              "id": "step5",
+              "op": {
+                "Op": {
+                  "source": {
+                    "attrs": {
+                      "local.excludepatterns": "[\".claude\",\".dockerignore\",\".env\",\".env.*\",\".git\",\".gitattributes\",\".gitignore\",\".pytest_cache\",\".venv\",\"BRIEF.md\",\"compose.yaml\",\"Dockerfile\",\"README.md\",\"tests\",\"run_baseline.sh\",\"run_hardened.sh\",\"run_pg.sh\",\"docs\"]",
+                      "local.followpaths": "[\"app\",\"pyproject.toml\",\"uv.lock\"]",
+                      "local.sharedkeyhint": "context"
+                    },
+                    "identifier": "local://context"
+                  }
+                },
+                "constraints": {}
+              }
+            },
+            {
+              "id": "step6",
+              "inputs": [
+                "step4:0",
+                "step5:0"
+              ],
+              "op": {
+                "Op": {
+                  "file": {
+                    "actions": [
+                      {
+                        "Action": {
+                          "copy": {
+                            "allowEmptyWildcard": true,
+                            "allowWildcard": true,
+                            "createDestPath": true,
+                            "dest": "/app/",
+                            "dirCopyContents": true,
+                            "followSymlink": true,
+                            "mode": -1,
+                            "src": "/uv.lock",
+                            "timestamp": -1
+                          }
+                        },
+                        "input": 0,
+                        "output": -1,
+                        "secondaryInput": 1
+                      },
+                      {
+                        "Action": {
+                          "copy": {
+                            "allowEmptyWildcard": true,
+                            "allowWildcard": true,
+                            "createDestPath": true,
+                            "dest": "/app/",
+                            "dirCopyContents": true,
+                            "followSymlink": true,
+                            "mode": -1,
+                            "src": "/pyproject.toml",
+                            "timestamp": -1
+                          }
+                        },
+                        "input": 2,
+                        "output": 0,
+                        "secondaryInput": 1
+                      }
+                    ]
+                  }
+                },
+                "constraints": {}
+              }
+            },
+            {
+              "id": "step7",
+              "inputs": [
+                "step6:0"
+              ],
+              "op": {
+                "Op": {
+                  "exec": {
+                    "meta": {
+                      "args": [
+                        "/bin/sh",
+                        "-c",
+                        "uv sync --frozen --no-dev"
+                      ],
+                      "cwd": "/app",
+                      "env": [
+                        "DEBIAN_FRONTEND=noninteractive",
+                        "LD_LIBRARY_PATH=/opt/python/lib",
+                        "PATH=/opt/python/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                        "PYTHON_VERSION=3.12.13",
+                        "SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt"
+                      ],
+                      "removeMountStubsRecursive": true,
+                      "user": "root"
+                    },
+                    "mounts": [
+                      {
+                        "dest": "/"
+                      }
+                    ]
+                  }
+                },
+                "constraints": {},
+                "platform": {
+                  "Architecture": "arm64",
+                  "OS": "linux"
+                }
+              }
+            },
+            {
+              "id": "step8",
+              "inputs": [
+                "step1:0",
+                "step7:0"
+              ],
+              "op": {
+                "Op": {
+                  "file": {
+                    "actions": [
+                      {
+                        "Action": {
+                          "copy": {
+                            "allowEmptyWildcard": true,
+                            "allowWildcard": true,
+                            "createDestPath": true,
+                            "dest": "/app/.venv",
+                            "dirCopyContents": true,
+                            "followSymlink": true,
+                            "mode": -1,
+                            "owner": {
+                              "group": {
+                                "User": {
+                                  "byName": {
+                                    "name": "nonroot"
+                                  }
+                                }
+                              },
+                              "user": {
+                                "User": {
+                                  "byName": {
+                                    "name": "nonroot"
+                                  }
+                                }
+                              }
+                            },
+                            "src": "/app/.venv",
+                            "timestamp": -1
+                          }
+                        },
+                        "input": 0,
+                        "output": 0,
+                        "secondaryInput": 1
+                      }
+                    ]
+                  }
+                },
+                "constraints": {}
+              }
+            },
+            {
+              "id": "step9",
+              "inputs": [
+                "step8:0",
+                "step5:0"
+              ],
+              "op": {
+                "Op": {
+                  "file": {
+                    "actions": [
+                      {
+                        "Action": {
+                          "copy": {
+                            "allowEmptyWildcard": true,
+                            "allowWildcard": true,
+                            "createDestPath": true,
+                            "dest": "/app/app",
+                            "dirCopyContents": true,
+                            "followSymlink": true,
+                            "mode": -1,
+                            "owner": {
+                              "group": {
+                                "User": {
+                                  "byName": {
+                                    "name": "nonroot"
+                                  }
+                                }
+                              },
+                              "user": {
+                                "User": {
+                                  "byName": {
+                                    "name": "nonroot"
+                                  }
+                                }
+                              }
+                            },
+                            "src": "/app",
+                            "timestamp": -1
+                          }
+                        },
+                        "input": 0,
+                        "output": 0,
+                        "secondaryInput": 1
+                      }
+                    ]
+                  }
+                },
+                "constraints": {}
+              }
+            },
+            {
+              "id": "step10",
+              "inputs": [
+                "step9:0"
+              ],
+              "op": {
+                "Op": {}
+              }
+            }
+          ]
+        },
+        "builderPlatform": "linux/arm64"
+      },
+      "resolvedDependencies": [
+        {
+          "digest": {
+            "sha256": "35924be4174348d4a0bdcf3bfaba81079cbb1faa52821611c71a6f50b3006572"
+          },
+          "uri": "pkg:docker/dhi.io/python@3.12?platform=linux%2Farm64"
+        },
+        {
+          "digest": {
+            "sha256": "5a88d78e7e961b911b5f83e77979c8b86f8952eaa5726eca9e61fa7ee313de07"
+          },
+          "uri": "pkg:docker/dhi.io/python@3.12-dev?platform=linux%2Farm64"
+        },
+        {
+          "digest": {
+            "sha256": "79e7b013cbec16bbb436f312819a49a4a57752b2270c1a9332ae1a10fcc82a68"
+          },
+          "uri": "pkg:docker/docker/buildkit-syft-scanner@stable-1"
+        }
+      ]
+    },
+    "runDetails": {
+      "builder": {
+        "id": ""
+      },
+      "metadata": {
+        "buildkit_completeness": {
+          "request": true,
+          "resolvedDependencies": false
+        },
+        "buildkit_metadata": {
+          "layers": {
+            "step0:0": [
+              [
+                {
+                  "digest": "sha256:86c8615e23b893ac8172aa02c3bfa4202292424919c191fec7757ff7a0eefdc7",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 181018
+                },
+                {
+                  "digest": "sha256:6a392ed3582b1a48d570d06876f6cb04c7612b1809e12fef3441b7cc76e54273",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 12347707
+                },
+                {
+                  "digest": "sha256:dc397c1e1266b7a29af64612d2f202d023f723b3d866ca4a902219eff18c8aad",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 351
+                },
+                {
+                  "digest": "sha256:b00e58e00f77dac03d17e5d2cce4c145748241ec850340062afb02ac2e426566",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 9668625
+                },
+                {
+                  "digest": "sha256:5a598f6c2dfe5b1402adae35a1b90204b3ff67cfff7b1ef30ed01f6c3b1e266d",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 6888
+                },
+                {
+                  "digest": "sha256:d257d802d89eea7ebaa0aed20c0d143d9f11b6c624ee1a349cea144d6d445cb6",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 6220
+                }
+              ]
+            ],
+            "step1:0": [
+              [
+                {
+                  "digest": "sha256:86c8615e23b893ac8172aa02c3bfa4202292424919c191fec7757ff7a0eefdc7",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 181018
+                },
+                {
+                  "digest": "sha256:6a392ed3582b1a48d570d06876f6cb04c7612b1809e12fef3441b7cc76e54273",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 12347707
+                },
+                {
+                  "digest": "sha256:dc397c1e1266b7a29af64612d2f202d023f723b3d866ca4a902219eff18c8aad",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 351
+                },
+                {
+                  "digest": "sha256:b00e58e00f77dac03d17e5d2cce4c145748241ec850340062afb02ac2e426566",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 9668625
+                },
+                {
+                  "digest": "sha256:5a598f6c2dfe5b1402adae35a1b90204b3ff67cfff7b1ef30ed01f6c3b1e266d",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 6888
+                },
+                {
+                  "digest": "sha256:d257d802d89eea7ebaa0aed20c0d143d9f11b6c624ee1a349cea144d6d445cb6",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 6220
+                },
+                {
+                  "digest": "sha256:539a25a29c2e8183ba513b523597d4ed9765a1efc029d9e2994244649267655d",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                  "size": 96
+                }
+              ]
+            ],
+            "step2:0": [
+              [
+                {
+                  "digest": "sha256:b9ee6644280a4deefde353129ebae4e2c68abd249cb9f869355bd8941e3d98b2",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 181023
+                },
+                {
+                  "digest": "sha256:ba82c01179dd1ad9c5ae4fafce8add3223da79e9e0df2b678442a3d8b1a56c15",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 24168088
+                },
+                {
+                  "digest": "sha256:166b3eb157cd2b3988f33d603e2b892338ecfddf1a3162a6713f660bf34ebc60",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 457
+                },
+                {
+                  "digest": "sha256:cbf3446f06600392e88adcb3eacc184b4e95189c16a4f2c7597f92c66d404edd",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 9668624
+                },
+                {
+                  "digest": "sha256:7a8c53540decd7a1c6726fba600a66b169db12bbd2986227c221c51669635980",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 16530
+                },
+                {
+                  "digest": "sha256:d3bfeed333644a1fc92a1d10e9e7a23c1c93ae9f7d41afcf5874daab5a136661",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 6376
+                }
+              ]
+            ],
+            "step8:0": [
+              [
+                {
+                  "digest": "sha256:86c8615e23b893ac8172aa02c3bfa4202292424919c191fec7757ff7a0eefdc7",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 181018
+                },
+                {
+                  "digest": "sha256:6a392ed3582b1a48d570d06876f6cb04c7612b1809e12fef3441b7cc76e54273",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 12347707
+                },
+                {
+                  "digest": "sha256:dc397c1e1266b7a29af64612d2f202d023f723b3d866ca4a902219eff18c8aad",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 351
+                },
+                {
+                  "digest": "sha256:b00e58e00f77dac03d17e5d2cce4c145748241ec850340062afb02ac2e426566",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 9668625
+                },
+                {
+                  "digest": "sha256:5a598f6c2dfe5b1402adae35a1b90204b3ff67cfff7b1ef30ed01f6c3b1e266d",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 6888
+                },
+                {
+                  "digest": "sha256:d257d802d89eea7ebaa0aed20c0d143d9f11b6c624ee1a349cea144d6d445cb6",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 6220
+                },
+                {
+                  "digest": "sha256:539a25a29c2e8183ba513b523597d4ed9765a1efc029d9e2994244649267655d",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                  "size": 96
+                },
+                {
+                  "digest": "sha256:38d7e9df16da417ee42adfb17426b24a8149ce2225d0bdc3eff7af9ef435201a",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                  "size": 21447930
+                }
+              ]
+            ],
+            "step9:0": [
+              [
+                {
+                  "digest": "sha256:86c8615e23b893ac8172aa02c3bfa4202292424919c191fec7757ff7a0eefdc7",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 181018
+                },
+                {
+                  "digest": "sha256:6a392ed3582b1a48d570d06876f6cb04c7612b1809e12fef3441b7cc76e54273",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 12347707
+                },
+                {
+                  "digest": "sha256:dc397c1e1266b7a29af64612d2f202d023f723b3d866ca4a902219eff18c8aad",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 351
+                },
+                {
+                  "digest": "sha256:b00e58e00f77dac03d17e5d2cce4c145748241ec850340062afb02ac2e426566",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 9668625
+                },
+                {
+                  "digest": "sha256:5a598f6c2dfe5b1402adae35a1b90204b3ff67cfff7b1ef30ed01f6c3b1e266d",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 6888
+                },
+                {
+                  "digest": "sha256:d257d802d89eea7ebaa0aed20c0d143d9f11b6c624ee1a349cea144d6d445cb6",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+zstd",
+                  "size": 6220
+                },
+                {
+                  "digest": "sha256:539a25a29c2e8183ba513b523597d4ed9765a1efc029d9e2994244649267655d",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                  "size": 96
+                },
+                {
+                  "digest": "sha256:38d7e9df16da417ee42adfb17426b24a8149ce2225d0bdc3eff7af9ef435201a",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                  "size": 21447930
+                },
+                {
+                  "digest": "sha256:f8cadb8b7ef1abb11d2169a74a3ed106a7b86d5b361dbc52bdfaeef6be6c90fa",
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                  "size": 20335
+                }
+              ]
+            ]
+          },
+          "source": {
+            "infos": [
+              {
+                "data": "RlJPTSBkaGkuaW8vcHl0aG9uOjMuMTItZGV2IEFTIGJ1aWxkZXIKV09SS0RJUiAvYXBwClJVTiBwaXAgaW5zdGFsbCAtLW5vLWNhY2hlLWRpciB1dgpDT1BZIHV2LmxvY2sgcHlwcm9qZWN0LnRvbWwgLi8KUlVOIHV2IHN5bmMgLS1mcm96ZW4gLS1uby1kZXYKCkZST00gZGhpLmlvL3B5dGhvbjozLjEyCldPUktESVIgL2FwcApDT1BZIC0tZnJvbT1idWlsZGVyIC0tY2hvd249bm9ucm9vdDpub25yb290IC9hcHAvLnZlbnYgL2FwcC8udmVudgpDT1BZIC0tY2hvd249bm9ucm9vdDpub25yb290IC4vYXBwIC4vYXBwClVTRVIgbm9ucm9vdAoKRU5WIFBBVEg9Ii9hcHAvLnZlbnYvYmluOiRQQVRIIgpFTlYgTE9HX0xFVkVMPUlORk8gXAogICAgUk9PVF9QQVRIPS9kb2NrZXJfZGVtbyBcCiAgICBQWVRIT05VTkJVRkZFUkVEPTEgXAogICAgUFlUSE9ORE9OVFdSSVRFQllURUNPREU9MQpFWFBPU0UgODgwMAoKQ01EIFsicHl0aG9uIiwgIi1tIiwgInV2aWNvcm4iLCAiYXBwLm1haW46YXBwIiwgIi0taG9zdCIsICIwLjAuMC4wIiwgIi0tcG9ydCIsICI4MDAwIl0=",
+                "digestMapping": {
+                  "sha256:012de1071af44e657c6f89d08421e915a8cc8194e1183c47522de95fdaa85b25": "step0",
+                  "sha256:ae91662ae84b4833dd5cd91968f3db1f67143a61b5910f11a18eb30c0d4bb253": "step1"
+                },
+                "filename": "Dockerfile_hardened",
+                "language": "Dockerfile",
+                "llbDefinition": [
+                  {
+                    "id": "step0",
+                    "op": {
+                      "Op": {
+                        "source": {
+                          "attrs": {
+                            "local.differ": "none",
+                            "local.followpaths": "[\"Dockerfile_hardened\",\"Dockerfile_hardened.dockerignore\"]",
+                            "local.sharedkeyhint": "dockerfile"
+                          },
+                          "identifier": "local://dockerfile"
+                        }
+                      },
+                      "constraints": {}
+                    }
+                  },
+                  {
+                    "id": "step1",
+                    "inputs": [
+                      "step0:0"
+                    ],
+                    "op": {
+                      "Op": {}
+                    }
+                  }
+                ]
+              }
+            ],
+            "locations": {
+              "step0": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "end": {
+                          "line": 7
+                        },
+                        "start": {
+                          "line": 7
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step1": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "end": {
+                          "line": 8
+                        },
+                        "start": {
+                          "line": 8
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step2": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "end": {
+                          "line": 1
+                        },
+                        "start": {
+                          "line": 1
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step3": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "end": {
+                          "line": 2
+                        },
+                        "start": {
+                          "line": 2
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step4": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "end": {
+                          "line": 3
+                        },
+                        "start": {
+                          "line": 3
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step5": {},
+              "step6": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "end": {
+                          "line": 4
+                        },
+                        "start": {
+                          "line": 4
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step7": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "end": {
+                          "line": 5
+                        },
+                        "start": {
+                          "line": 5
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step8": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "end": {
+                          "line": 9
+                        },
+                        "start": {
+                          "line": 9
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step9": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "end": {
+                          "line": 10
+                        },
+                        "start": {
+                          "line": 10
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "vcs": {
+            "localdir:context": ".",
+            "localdir:dockerfile": ".",
+            "revision": "a30e8a889e39c290fe69e96698a706a57c0b2714",
+            "source": "git@github.com:LennartOnGit/hardad.git"
+          }
+        },
+        "finishedOn": "2026-04-16T12:25:33.453239139Z",
+        "invocationId": "1whosi6rxeeuf13dr1ygaltzc",
+        "startedOn": "2026-04-16T12:25:30.554269971Z"
+      }
+    }
+  }
+}
