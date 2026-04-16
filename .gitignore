@@ -6,3 +6,7 @@ __pycache__/
 dist/
 *.egg-info/
 .DS_Store
+run_baseline.sh
+run_hardened.sh
+run_pg.sh
+BRIEF.md

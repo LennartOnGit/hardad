@@ -1,0 +1,239 @@
+
+
+## Overview
+
+                   │               Analyzed Image               
+───────────────────┼────────────────────────────────────────────
+ Target            │  hardad:baseline                           
+   digest          │  7df47f8cacf9                              
+   platform        │ linux/arm64                                
+   provenance      │ https://github.com/LennartOnGit/h-rdad.git 
+                   │  https://github.com/LennartOnGit/h-rdad/blob/bdfe48be0594f7f198411a0cea161e8685ea41ec  
+   vulnerabilities │    0C     3H     3M    25L     2?          
+   size            │ 86 MB                                      
+   packages        │ 167                                        
+
+
+## Packages and Vulnerabilities
+
+   0C     3H     0M     3L     2?  openssl 3.5.5-1~deb13u1
+pkg:deb/debian/openssl@3.5.5-1~deb13u1?os_distro=trixie&os_name=debian&os_version=13
+
+    ✗ HIGH CVE-2026-28390
+      https://scout.docker.com/v/CVE-2026-28390?s=debian&n=openssl&ns=debian&t=deb&osn=debian&osv=13&vr=%3C3.5.5-1%7Edeb13u2
+      Affected range : <3.5.5-1~deb13u2 
+      Fixed version  : 3.5.5-1~deb13u2  
+    
+    ✗ HIGH CVE-2026-28389
+      https://scout.docker.com/v/CVE-2026-28389?s=debian&n=openssl&ns=debian&t=deb&osn=debian&osv=13&vr=%3C3.5.5-1%7Edeb13u2
+      Affected range : <3.5.5-1~deb13u2 
+      Fixed version  : 3.5.5-1~deb13u2  
+    
+    ✗ HIGH CVE-2026-28388
+      https://scout.docker.com/v/CVE-2026-28388?s=debian&n=openssl&ns=debian&t=deb&osn=debian&osv=13&vr=%3C3.5.5-1%7Edeb13u2
+      Affected range : <3.5.5-1~deb13u2 
+      Fixed version  : 3.5.5-1~deb13u2  
+    
+    ✗ LOW CVE-2026-31790
+      https://scout.docker.com/v/CVE-2026-31790?s=debian&n=openssl&ns=debian&t=deb&osn=debian&osv=13&vr=%3C3.5.5-1%7Edeb13u2
+      Affected range : <3.5.5-1~deb13u2 
+      Fixed version  : 3.5.5-1~deb13u2  
+    
+    ✗ LOW CVE-2026-2673
+      https://scout.docker.com/v/CVE-2026-2673?s=debian&n=openssl&ns=debian&t=deb&osn=debian&osv=13&vr=%3C3.5.5-1%7Edeb13u2
+      Affected range : <3.5.5-1~deb13u2 
+      Fixed version  : 3.5.5-1~deb13u2  
+    
+    ✗ LOW CVE-2010-0928
+      https://scout.docker.com/v/CVE-2010-0928?s=debian&n=openssl&ns=debian&t=deb&osn=debian&osv=13&vr=%3E%3D3.2.1-3
+      Affected range : >=3.2.1-3 
+      Fixed version  : not fixed 
+    
+    ✗ UNSPECIFIED CVE-2026-31789
+      https://scout.docker.com/v/CVE-2026-31789?s=debian&n=openssl&ns=debian&t=deb&osn=debian&osv=13&vr=%3C3.5.5-1%7Edeb13u2
+      Affected range : <3.5.5-1~deb13u2 
+      Fixed version  : 3.5.5-1~deb13u2  
+    
+    ✗ UNSPECIFIED CVE-2026-28387
+      https://scout.docker.com/v/CVE-2026-28387?s=debian&n=openssl&ns=debian&t=deb&osn=debian&osv=13&vr=%3C3.5.5-1%7Edeb13u2
+      Affected range : <3.5.5-1~deb13u2 
+      Fixed version  : 3.5.5-1~deb13u2  
+    
+
+   0C     0H     2M     1L  tar 1.35+dfsg-3.1
+pkg:deb/debian/tar@1.35%2Bdfsg-3.1?os_distro=trixie&os_name=debian&os_version=13
+
+    ✗ MEDIUM CVE-2026-5704
+      https://scout.docker.com/v/CVE-2026-5704?s=debian&n=tar&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+    ✗ MEDIUM CVE-2025-45582
+      https://scout.docker.com/v/CVE-2025-45582?s=debian&n=tar&ns=debian&t=deb&osn=debian&osv=13&vr=%3E%3D1.35%2Bdfsg-3.1
+      Affected range : >=1.35+dfsg-3.1 
+      Fixed version  : not fixed       
+    
+    ✗ LOW CVE-2005-2541
+      https://scout.docker.com/v/CVE-2005-2541?s=debian&n=tar&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+
+   0C     0H     1M     1L  pip 25.0.1
+pkg:pypi/pip@25.0.1
+
+    ✗ MEDIUM CVE-2025-8869 [Improper Link Resolution Before File Access ('Link Following')]
+      https://scout.docker.com/v/CVE-2025-8869?s=github&n=pip&t=pypi&vr=%3C%3D25.2
+      Affected range : <=25.2                                                          
+      Fixed version  : 25.3                                                            
+      CVSS Score     : 5.9                                                             
+      CVSS Vector    : CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:A/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N 
+    
+    ✗ LOW CVE-2026-1703 [Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')]
+      https://scout.docker.com/v/CVE-2026-1703?s=github&n=pip&t=pypi&vr=%3C26.0
+      Affected range : <26.0                                                           
+      Fixed version  : 26.0                                                            
+      CVSS Score     : 2.0                                                             
+      CVSS Vector    : CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:A/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N 
+    
+
+   0C     0H     0M     7L  glibc 2.41-12+deb13u2
+pkg:deb/debian/glibc@2.41-12%2Bdeb13u2?os_distro=trixie&os_name=debian&os_version=13
+
+    ✗ LOW CVE-2019-9192
+      https://scout.docker.com/v/CVE-2019-9192?s=debian&n=glibc&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+    ✗ LOW CVE-2019-1010025
+      https://scout.docker.com/v/CVE-2019-1010025?s=debian&n=glibc&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+    ✗ LOW CVE-2019-1010024
+      https://scout.docker.com/v/CVE-2019-1010024?s=debian&n=glibc&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+    ✗ LOW CVE-2019-1010023
+      https://scout.docker.com/v/CVE-2019-1010023?s=debian&n=glibc&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+    ✗ LOW CVE-2019-1010022
+      https://scout.docker.com/v/CVE-2019-1010022?s=debian&n=glibc&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+    ✗ LOW CVE-2018-20796
+      https://scout.docker.com/v/CVE-2018-20796?s=debian&n=glibc&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+    ✗ LOW CVE-2010-4756
+      https://scout.docker.com/v/CVE-2010-4756?s=debian&n=glibc&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+
+   0C     0H     0M     4L  systemd 257.9-1~deb13u1
+pkg:deb/debian/systemd@257.9-1~deb13u1?os_distro=trixie&os_name=debian&os_version=13
+
+    ✗ LOW CVE-2023-31439
+      https://scout.docker.com/v/CVE-2023-31439?s=debian&n=systemd&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+    ✗ LOW CVE-2023-31438
+      https://scout.docker.com/v/CVE-2023-31438?s=debian&n=systemd&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+    ✗ LOW CVE-2023-31437
+      https://scout.docker.com/v/CVE-2023-31437?s=debian&n=systemd&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+    ✗ LOW CVE-2013-4392
+      https://scout.docker.com/v/CVE-2013-4392?s=debian&n=systemd&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+
+   0C     0H     0M     2L  coreutils 9.7-3
+pkg:deb/debian/coreutils@9.7-3?os_distro=trixie&os_name=debian&os_version=13
+
+    ✗ LOW CVE-2025-5278
+      https://scout.docker.com/v/CVE-2025-5278?s=debian&n=coreutils&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+    ✗ LOW CVE-2017-18018
+      https://scout.docker.com/v/CVE-2017-18018?s=debian&n=coreutils&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+
+   0C     0H     0M     2L  util-linux 2.41-5
+pkg:deb/debian/util-linux@2.41-5?os_distro=trixie&os_name=debian&os_version=13
+
+    ✗ LOW CVE-2025-14104
+      https://scout.docker.com/v/CVE-2025-14104?s=debian&n=util-linux&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+    ✗ LOW CVE-2022-0563
+      https://scout.docker.com/v/CVE-2022-0563?s=debian&n=util-linux&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+
+   0C     0H     0M     2L  sqlite3 3.46.1-7+deb13u1
+pkg:deb/debian/sqlite3@3.46.1-7%2Bdeb13u1?os_distro=trixie&os_name=debian&os_version=13
+
+    ✗ LOW CVE-2025-70873
+      https://scout.docker.com/v/CVE-2025-70873?s=debian&n=sqlite3&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+    ✗ LOW CVE-2021-45346
+      https://scout.docker.com/v/CVE-2021-45346?s=debian&n=sqlite3&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+
+   0C     0H     0M     1L  shadow 1:4.17.4-2
+pkg:deb/debian/shadow@1%3A4.17.4-2?os_distro=trixie&os_name=debian&os_version=13
+
+    ✗ LOW CVE-2007-5686
+      https://scout.docker.com/v/CVE-2007-5686?s=debian&n=shadow&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+
+   0C     0H     0M     1L  apt 3.0.3
+pkg:deb/debian/apt@3.0.3?os_distro=trixie&os_name=debian&os_version=13
+
+    ✗ LOW CVE-2011-3374
+      https://scout.docker.com/v/CVE-2011-3374?s=debian&n=apt&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+
+   0C     0H     0M     1L  perl 5.40.1-6
+pkg:deb/debian/perl@5.40.1-6?os_distro=trixie&os_name=debian&os_version=13
+
+    ✗ LOW CVE-2011-4116
+      https://scout.docker.com/v/CVE-2011-4116?s=debian&n=perl&ns=debian&t=deb&osn=debian&osv=13&vr=%3E0
+      Affected range : >0        
+      Fixed version  : not fixed 
+    
+
+
+33 vulnerabilities found in 11 packages
+  CRITICAL     0  
+  HIGH         3  
+  MEDIUM       3  
+  LOW          25 
+  UNSPECIFIED  2  
+
