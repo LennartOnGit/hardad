@@ -16,7 +16,10 @@ jobs:
       # 1. Checkout the code.
       - name: Checkout
         uses: actions/checkout@v4
-        
+    
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+    
       # 2. Set up BuildKit with the docker-container driver.
       - name: Set up Buildx
         uses: docker/setup-buildx-action@v3
@@ -47,6 +50,7 @@ jobs:
           context: .
           push: true
           file: Dockerfile_hardened
+          platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           sbom: true
