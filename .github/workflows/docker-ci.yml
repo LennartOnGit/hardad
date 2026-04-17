@@ -56,14 +56,17 @@ jobs:
       - name: Install cosign
         uses: sigstore/cosign-installer@v3
         
-     # 7. Sign by DIGEST.
+      # 7. Sign by DIGEST.
       # GitHub OIDC token from the environment
       - name: Sign image
         if: github.event_name == 'push'
         run: |
           cosign sign --yes lennartondocker/hardad@${{ steps.build.outputs.digest }}
-          
-     # 8. Scout policy evaluation.
+    
+      - name: Wait for Scout indexing
+        run: sleep 60
+    
+      # 8. Scout policy evaluation.
       - name: Scout policy evaluation
         uses: docker/scout-action@v1
         with:
