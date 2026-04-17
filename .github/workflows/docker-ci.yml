@@ -68,4 +68,5 @@ jobs:
         uses: docker/scout-action@v1
         with:
           command: policy
+          organization: lennartondocker
           image: lennartondocker/hardad@${{ steps.build.outputs.digest }}
