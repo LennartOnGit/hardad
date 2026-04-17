@@ -46,7 +46,7 @@ jobs:
         with:
           context: .
           push: true
-          file: {context}/Dockerfile_hardened
+          file: Dockerfile_hardened
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           sbom: true
