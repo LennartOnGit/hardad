@@ -1,0 +1,9 @@
+auth:
+  username: tutor
+  password: <REMOVED-ROTATED>
+  database: tutor
+
+primary:
+  persistence:
+    enabled: true
+    size: 5Gi

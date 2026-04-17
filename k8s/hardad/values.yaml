@@ -1,0 +1,47 @@
+replicaCount: 2
+
+image:
+  repository: lennartondocker/hardad
+  tag: hardened
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 8000
+
+ingress:
+  enabled: true
+  className: ""
+  hosts:
+    - host: ""
+      paths:
+        - path: /docker_demo
+          pathType: Prefix
+  tls: []
+
+env:
+  ROOT_PATH: /docker_demo
+  LOG_LEVEL: INFO
+  AUTH_MODE: token
+  HISTORY_RETENTION_TURNS: "50"
+
+secrets:
+  ANTHROPIC_API_KEY: ""
+  DEMO_ACCESS_TOKEN: ""
+  DATABASE_URL: ""
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
+
+probes:
+  liveness:
+    path: /docker_demo/healthz
+    port: 8000
+  readiness:
+    path: /docker_demo/healthz
+    port: 8000
