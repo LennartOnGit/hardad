@@ -1,4 +1,4 @@
-.env
+.env*
 *.db
 .venv/
 __pycache__/
@@ -11,3 +11,8 @@ run_hardened.sh
 run_pg.sh
 BRIEF.md
 buildx_sign_attest.sh
+.claude/
+.dockerignore
+tests/
+docs/
+
