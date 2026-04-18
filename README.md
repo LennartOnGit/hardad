@@ -90,6 +90,124 @@ docker scout cves lennartondocker/hardad:hardened
 docker scout sbom --format spdx lennartondocker/hardad:hardened
 ```
 
+## Kubernetes Secret
+
+The app reads its secrets from the `hardad-secrets` Secret in the `tutor`
+namespace. The schema changed in the multi-user auth release: the old
+`DEMO_ACCESS_TOKEN` key was replaced by `ADMIN_TOKEN` (the admin user's
+access token, which is auto-seeded into the users table on startup).
+
+Recreate the Secret with:
+
+```bash
+kubectl delete secret hardad-secrets -n tutor
+kubectl create secret generic hardad-secrets -n tutor \
+  --from-literal=ANTHROPIC_API_KEY='<key>' \
+  --from-literal=ADMIN_TOKEN='<token>' \
+  --from-literal=DATABASE_URL='postgresql+psycopg://tutor:dev@postgres-postgresql:5432/tutor'
+```
+
+Generate a suitable admin token with:
+
+```bash
+python -c "import secrets; print(secrets.token_urlsafe(32))"
+```
+
+Additional users are created via the admin endpoints — see
+`POST /admin/users` — and receive their own access tokens and daily token
+budgets.
+
+## Tutor feature map
+
+The app is a thin REST surface over Claude. Every LLM call is accounted
+against the caller's daily `ADMIN_TOKEN`-provisioned budget so a runaway
+frontend cannot burn through the bill; `check_budget` raises 429 before any
+billable work starts.
+
+| Endpoint | Model | What it does |
+|---|---|---|
+| `POST /messages` | `ANTHROPIC_MODEL` (Sonnet) | Tutor turn. One call returns a JSON object with `reply` (Swedish), `cefr_score` (0-100 for the user's message), and `corrections` (list of `{type, original, fix, note}` for spelling/grammar issues). |
+| `POST /translate` | `ANTHROPIC_FAST_MODEL` (Haiku) | Plain-text SV→EN for a phrase drag-selected in a tutor bubble or a whole message (SV/EN toggle pill). |
+| `GET /dict/{word}` | Haiku (fallback only) | Dictionary lookup. Resolved in order: in-memory seed (`app/static/dict_sv.json`, ~350 A1-B1 words), `dict_cache` DB table, then Haiku — with the result cached in `dict_cache` for subsequent hits. Seed + cache hits are free; only the LLM fallback counts against the budget. |
+| `GET /news` | Haiku | Three conversation-starter topic cards tuned to the user's rolling CEFR level. Cached per-`(date, cefr_level)` in the `news_topics` table — the first caller at a given level pays, the rest are free for the day. |
+| `GET /me` | — | Bootstrap payload for the React shell: user, CEFR state, today's remaining budget, message history for the open session. |
+
+### CEFR scoring
+
+A single Sonnet call per tutor turn returns both the reply and a 0-100 CEFR
+score for the user's message, anchored to the six-band rubric:
+
+```
+A1: 0-16.6   A2: 16.7-33.3   B1: 33.4-50
+B2: 50.1-66.6   C1: 66.7-83.3   C2: 83.4-100
+```
+
+Deductions are baked into the prompt: −4 points per spelling error (max
+−20), −6 points per grammar error (max −30). Replies ≤ 2 words are capped
+at 20. Non-Swedish input scores 5. See `app/prompts/tutor_system_v2.txt`
+for the full rubric and `app/cefr.py` for how scores are rolled forward
+into a 20-sample moving average.
+
+The rolling average is what the top progress bar shows and what `user.cefr_level`
+stores — it reacts within ~5 messages to sustained change but smooths out
+one-off easy/hard turns. All 20 raw samples live on `user.cefr_samples`
+for audit / debugging.
+
+### Grammar & spelling correction approach
+
+Rather than a second LLM pass or a rule-based grammar checker, the same
+Sonnet call that produces the reply also produces a structured `corrections`
+array. Each entry is `{type: "spell" | "gram", original, fix, note}`:
+
+- `original` is the exact substring from the user's message (so the frontend
+  can splice-in replacements without rerunning a matcher)
+- `fix` is the corrected form
+- `note` is a short English explanation (≤ 12 words) for the correction tooltip
+
+This single-pass design has two properties worth noting:
+
+1. **One model call, one budget hit.** A separate grammar pass would
+   double round-trip latency and roughly double token cost. The rubric in
+   the system prompt tells the tutor to both score *and* report; one
+   structured output covers both.
+2. **Natural confirmations.** The prompt instructs the tutor to
+   acknowledge corrections conversationally in `reply` without lecturing
+   — the structured `corrections` list handles the teaching surface,
+   freeing the reply to stay warm.
+
+A production version would add a Swedish-specific grammar fallback
+(Språkbanken's tools, or an n-gram language model trained on
+[Göteborgsposten or similar corpora](https://spraakbanken.gu.se/en/resources))
+for deterministic checks. For this demo, the LLM call is good enough and
+keeps the pipeline simple.
+
+### Dictionary seed
+
+The static seed at `app/static/dict_sv.json` contains ~350 high-frequency
+A1-B1 headwords covering greetings, pronouns, common verbs (with principal
+parts), articles, prepositions, time nouns, family/home/transport/food
+vocabulary, politics terms, and numbers. It's the fast path for word
+hover — 90%+ of tooltips resolve without touching the network.
+
+For a production deployment, the recommended path is replacing the seed
+with an import of [Folkets Lexikon](https://folkets-lexikon.csc.kth.se/)
+(the Swedish–English folk dictionary, CC-BY 2.5 — ~100k entries, far
+richer than a hand-curated seed). The `_meta` section of `dict_sv.json`
+documents this migration path; the `dict_cache` table serves the same
+role regardless of the seed source.
+
+### Frontend
+
+`app/templates/chat.html` is a React+Babel shell that pulls everything
+else from `/static/`: `styles.css` (design system), `chat.jsx` (main app),
+`presentation.jsx` (build-journal slides), and `slides.json` (editable
+slide content — each slide is a flat list of typed blocks so non-code
+edits only need a JSON change).
+
+The bottom-bar token counter reads the live `remaining` value returned by
+every billable endpoint, so users see their quota draining in real time
+and know why a 429 happened when it does.
+
 ## License
 
 Apache 2.0. See the GitHub repository for full details.

@@ -6,28 +6,24 @@ image:
   pullPolicy: Always
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 8000
+  nodePort: 30080
 
 ingress:
-  enabled: true
-  className: ""
-  hosts:
-    - host: ""
-      paths:
-        - path: /docker_demo
-          pathType: Prefix
-  tls: []
+  enabled: false
 
 env:
   ROOT_PATH: /docker_demo
   LOG_LEVEL: INFO
-  AUTH_MODE: token
   HISTORY_RETENTION_TURNS: "50"
 
+# Keys here must match the secretKeyRefs in templates/deployment.yaml.
+# Secret creation is kubectl-side (not Helm-managed); see README §"Kubernetes
+# Secret" for the create-secret command.
 secrets:
   ANTHROPIC_API_KEY: ""
-  DEMO_ACCESS_TOKEN: ""
+  ADMIN_TOKEN: ""
   DATABASE_URL: ""
 
 resources:

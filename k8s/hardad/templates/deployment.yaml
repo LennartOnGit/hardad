@@ -18,7 +18,6 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "hardad.serviceAccountName" . }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -37,11 +36,14 @@ spec:
                 secretKeyRef:
                   name: hardad-secrets
                   key: ANTHROPIC_API_KEY
-            - name: DEMO_ACCESS_TOKEN
+            # Renamed from DEMO_ACCESS_TOKEN in the multi-user auth release.
+            # `ADMIN_TOKEN` is auto-seeded into the users table at startup as
+            # the admin user's access token.
+            - name: ADMIN_TOKEN
               valueFrom:
                 secretKeyRef:
                   name: hardad-secrets
-                  key: DEMO_ACCESS_TOKEN
+                  key: ADMIN_TOKEN
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:

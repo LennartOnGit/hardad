@@ -1,0 +1,207 @@
+{
+  "_meta": {
+    "description": "Editable slide content for the Härdad build-journal presentation. Each slide is a flat list of typed blocks. Reordering a slide only needs a JSON edit — no JSX touch. Recognised block types: eyebrow, title, lede, body, pills, stats, table, arch, callout, sc-layers.",
+    "blockTypes": {
+      "eyebrow":   { "text": "small uppercase label above the title" },
+      "title":     { "text": "H2 title (H1 is rendered for type='title-hero')", "hero": "optional boolean — render as H1" },
+      "lede":      { "text": "larger intro paragraph", "html": "optional HTML override" },
+      "body":      { "text": "paragraph text", "html": "optional HTML override for inline <code>/<em>/<strong>" },
+      "pills":     { "items": [{"text": "label", "variant": "ok|warn|(none)"}] },
+      "stats":     { "items": [{"k": "eyebrow", "v": "big number", "d": "footer", "dClass": "optional 'neg'", "vSmall": "optional true"}] },
+      "table":     { "headers": ["col labels"], "rows": [[{"text": "cell", "class": "good|bad|mono|(none)"}]], "maxWidth": "optional px" },
+      "arch":      { "items": [{"tag": "node", "name": "...", "label": "...", "indent": 0}, {"tag": "arrow", "text": "..."}] },
+      "callout":   { "text": "code block text" },
+      "sc-layers": { "items": [{"level": "L1", "color": "err|l-c2|ok", "title": "...", "desc": "..."}] }
+    }
+  },
+
+  "slides": [
+    {
+      "id": "01-title",
+      "label": "01 Title",
+      "blocks": [
+        { "type": "eyebrow", "text": "Build Journal · Demo for Docker SE application" },
+        { "type": "title", "hero": true, "text": "härdad — a Swedish tutor hardened all the way down." },
+        { "type": "lede", "html": "A conversational Swedish‑language tutor powered by Anthropic Claude. The application is the vehicle — the interesting part is everything <em>attached</em> to the image: signed evidence about how it was built, what's in it, and who vouches for it." },
+        { "type": "pills", "items": [
+          { "text": "Docker Hardened Images" },
+          { "text": "Sigstore · cosign keyless" },
+          { "text": "SLSA provenance" },
+          { "text": "Docker Scout policy" },
+          { "text": "k3s · Helm" }
+        ]}
+      ]
+    },
+    {
+      "id": "02-premise",
+      "label": "02 Premise",
+      "blocks": [
+        { "type": "eyebrow", "text": "Phase 0 · The premise" },
+        { "type": "title", "text": "The interesting part isn't the app. It's the evidence." },
+        { "type": "body", "html": "The project name is <strong>härdad</strong> — Swedish for \"hardened.\" All technical references use the ASCII form <code>hardad</code> because, as the project taught me the hard way, non‑ASCII characters break build tooling." },
+        { "type": "stats", "items": [
+          { "k": "Focused work", "v": "~10 days", "d": "from zero knowledge" },
+          { "k": "Artifacts shipped", "v": "signed", "d": "+ attested + policy‑gated" },
+          { "k": "Deployed on", "v": "k3s", "d": "publicly reachable" }
+        ]}
+      ]
+    },
+    {
+      "id": "03-dhi-delta",
+      "label": "03 DHI Delta",
+      "blocks": [
+        { "type": "eyebrow", "text": "Phase 1 · Step 5 — Docker Hardened Images" },
+        { "type": "title", "text": "-49% image, -65% Debian packages, -67% criticals." },
+        { "type": "body", "html": "Same Python dependency closure, byte‑for‑byte. Only the base layer changed: from <code>python:3.12-slim</code> to <code>dhi.io/python:3.12</code>." },
+        { "type": "table",
+          "headers": ["Metric", "Baseline", "Hardened", "Delta"],
+          "rows": [
+            [ {"text":"Image size"}, {"text":"86 MB","class":"mono"}, {"text":"44 MB","class":"mono"}, {"text":"−49%","class":"good"} ],
+            [ {"text":"Total packages"}, {"text":"167","class":"mono"}, {"text":"91","class":"mono"}, {"text":"−46%","class":"good"} ],
+            [ {"text":"Debian packages"}, {"text":"122","class":"mono"}, {"text":"43","class":"mono"}, {"text":"−65%","class":"good"} ],
+            [ {"text":"Python packages"}, {"text":"36","class":"mono"}, {"text":"36","class":"mono"}, {"text":"unchanged","class":"mono"} ],
+            [ {"text":"Total CVEs"}, {"text":"33","class":"mono"}, {"text":"20","class":"mono"}, {"text":"−39%","class":"good"} ],
+            [ {"text":"Critical + High CVEs"}, {"text":"3","class":"bad"}, {"text":"1","class":"good"}, {"text":"−67%","class":"good"} ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04-openssl",
+      "label": "04 openssl beat",
+      "blocks": [
+        { "type": "eyebrow", "text": "The demo's strongest single beat" },
+        { "type": "title", "text": "Same upstream. One patch level newer. Zero highs." },
+        { "type": "body", "html": "The community pipeline waits for the Debian release cadence; the DHI pipeline rebuilds nightly and had the patch. That lag is the entire DHI value proposition in one comparison." },
+        { "type": "table", "maxWidth": 520,
+          "headers": ["openssl", "Baseline", "Hardened"],
+          "rows": [
+            [ {"text":"Version"}, {"text":"3.5.5-1~deb13u1","class":"mono"}, {"text":"3.5.5-1~deb13u2","class":"mono"} ],
+            [ {"text":"Total CVEs"}, {"text":"8","class":"bad"}, {"text":"1","class":"good"} ],
+            [ {"text":"High CVEs"}, {"text":"3","class":"bad"}, {"text":"0","class":"good"} ]
+          ]
+        },
+        { "type": "body", "html": "<strong>What disappeared from the Debian layer (80 packages removed):</strong> apt, dpkg, bash, dash, coreutils, findutils, grep, sed, tar, systemd, pam, adduser, passwd, login, shadow — and the entire Perl runtime." }
+      ]
+    },
+    {
+      "id": "05-attestations",
+      "label": "05 Attestations",
+      "blocks": [
+        { "type": "eyebrow", "text": "Step 6 — Build‑time SBOM + SLSA provenance" },
+        { "type": "title", "html": "SBOM as inventory vs SBOM as <em>evidence.</em>" },
+        { "type": "body", "html": "Post‑hoc SBOMs (scanners) read <code>/var/lib/dpkg/status</code> after the fact. Build‑time SBOMs are emitted <em>during</em> the build, by the system that knows exactly what it installed." },
+        { "type": "arch", "items": [
+          { "tag": "node", "name": "OCI image manifest", "label": "digest" },
+          { "tag": "arrow", "text": "└── sibling artifacts (index)" },
+          { "tag": "node", "name": "SPDX SBOM attestation", "label": "in‑toto", "indent": 24 },
+          { "tag": "node", "name": "SLSA provenance attestation", "label": "in‑toto", "indent": 24 },
+          { "tag": "node", "name": "cosign signature (personal · Google OIDC)", "label": "sigstore", "indent": 24 },
+          { "tag": "node", "name": "cosign signature (CI · GitHub OIDC)", "label": "sigstore", "indent": 24 }
+        ]}
+      ]
+    },
+    {
+      "id": "06-sigstore",
+      "label": "06 Sigstore",
+      "blocks": [
+        { "type": "eyebrow", "text": "Step 7 — cosign keyless signing" },
+        { "type": "title", "text": "No long‑lived private key. Ever." },
+        { "type": "body", "html": "cosign keyless inverts the traditional PGP/SSH model. You're not trusted because you hold a secret key. You're trusted because Fulcio observed your OIDC authentication and recorded that observation in a public log." },
+        { "type": "stats", "items": [
+          { "k": "Fulcio", "v": "Short‑lived CA", "d": "10‑minute OIDC‑bound cert", "vSmall": true },
+          { "k": "Rekor",  "v": "Merkle log",     "d": "append‑only transparency",  "vSmall": true },
+          { "k": "cosign", "v": "CLI",            "d": "signs by digest, never tag", "vSmall": true }
+        ]},
+        { "type": "callout", "text": "DIGEST=$(docker buildx imagetools inspect \\\n  lennartondocker/hardad:hardened --format '{{.Manifest.Digest}}')\ncosign sign lennartondocker/hardad@${DIGEST}" }
+      ]
+    },
+    {
+      "id": "07-slsa",
+      "label": "07 SLSA",
+      "blocks": [
+        { "type": "eyebrow", "text": "Step 8 — CI pipeline + SLSA levels" },
+        { "type": "title", "text": "SLSA levels are per‑artifact, not contagious." },
+        { "type": "body", "html": "Building an L1 image FROM an L3 DHI base doesn't reduce the base to L1. The base image's attestations remain independently verifiable. The composite has its own (weaker) provenance. Consumers trace each layer independently." },
+        { "type": "sc-layers", "items": [
+          { "level": "L1", "color": "err",  "title": "Laptop build · provenance exists but forgeable", "desc": "Real provenance, weak guarantees" },
+          { "level": "L2", "color": "l-c2", "title": "Hosted build service · signed provenance",        "desc": "Defeats post‑build tampering" },
+          { "level": "L3", "color": "ok",   "title": "Hardened build platform · isolated env, unreachable keys", "desc": "Defeats a malicious build step trying to forge provenance" }
+        ]}
+      ]
+    },
+    {
+      "id": "08-scout",
+      "label": "08 Scout",
+      "blocks": [
+        { "type": "eyebrow", "text": "Step 8 — Docker Scout policy evaluation" },
+        { "type": "title", "text": "Three out of four passing. Honestly." },
+        { "type": "table",
+          "headers": ["Policy", "Result"],
+          "rows": [
+            [ {"text":"Default non‑root user"},                        {"text":"✅ Compliant","class":"good"} ],
+            [ {"text":"No fixable critical vulnerabilities > 30 days"}, {"text":"✅ Compliant","class":"good"} ],
+            [ {"text":"Only hardened base images"},                    {"text":"⊘ No data","class":"mono"} ],
+            [ {"text":"Supply chain attestations"},                    {"text":"✅ Compliant","class":"good"} ]
+          ]
+        },
+        { "type": "body", "html": "The \"only hardened base images\" policy returns <em>no data</em> because Scout's base‑image detection can't trace through multi‑stage COPYs to identify DHI lineage. Honest talking point: <em>\"I use DHI but the automated detection couldn't verify it — in production I'd configure an exception or adjust the detection.\"</em>" }
+      ]
+    },
+    {
+      "id": "09-k3s",
+      "label": "09 k3s",
+      "blocks": [
+        { "type": "eyebrow", "text": "Phase 1 · Steps 11–13 — Deployment" },
+        { "type": "title", "text": "k3s · Helm · Apache reverse proxy · NodePort." },
+        { "type": "body", "html": "Bitnami PostgreSQL chart in a <code>tutor</code> namespace. Custom Helm chart for the app: 2 replicas, values.yaml + Kubernetes Secrets split, liveness/readiness probes, NodePort Service. Apache proxies <code>/docker_demo</code> to <code>192.168.177.30:30080</code>." },
+        { "type": "arch", "items": [
+          { "tag": "node",  "name": "Browser · https://lenie.selfhost.eu/docker_demo", "label": "TLS edge" },
+          { "tag": "arrow", "text": "↓ Apache mod_proxy · HTTPS vhost" },
+          { "tag": "node",  "name": "Proxmox VM · 192.168.177.30:30080", "label": "NodePort" },
+          { "tag": "arrow", "text": "↓ kube‑proxy" },
+          { "tag": "node",  "name": "Service: hardad (tutor ns)", "label": "ClusterIP" },
+          { "tag": "arrow", "text": "↓ CoreDNS · Pod network (Flannel)" },
+          { "tag": "node",  "name": "Deployment: hardad · 2 replicas", "label": "arm64" },
+          { "tag": "arrow", "text": "↓ DATABASE_URL · in‑cluster DNS" },
+          { "tag": "node",  "name": "postgres-postgresql.tutor.svc.cluster.local:5432", "label": "Bitnami" }
+        ]}
+      ]
+    },
+    {
+      "id": "10-gaps",
+      "label": "10 Gaps",
+      "blocks": [
+        { "type": "eyebrow", "text": "Honest gaps" },
+        { "type": "title", "text": "What I haven't done, and how I'd frame it." },
+        { "type": "table",
+          "rows": [
+            [ {"text":"Multi‑node HA clusters"},   {"text":"Single‑node k3s only. Understand Deployments, Services, Helm, probes, Secrets. Haven't operated RBAC / network policies / production monitoring at scale."} ],
+            [ {"text":"Ingress controller"},       {"text":"Bypassed Traefik due to port‑80 conflict with Apache. Used NodePort + Apache proxy. Concept understood; rules not configured in practice."} ],
+            [ {"text":"Admission controller"},     {"text":"Planned as Phase 3 (Sigstore Policy Controller). Trust model understood, not yet implemented."} ],
+            [ {"text":"Multi‑arch CI"},            {"text":"Local arm64 builds deploy to the arm64 k3s cluster. CI produces amd64 for signing/policy demos. QEMU emulation is a known two‑line addition."} ],
+            [ {"text":"Voice + MCP features"},     {"text":"Phase 2. Infrastructure ready — Whisper (Mac‑native, MLX) + Piper TTS (sv_SE‑nst‑medium) reachable over LAN."} ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "11-close",
+      "label": "11 Close",
+      "blocks": [
+        { "type": "eyebrow", "text": "What this proves" },
+        { "type": "title", "text": "I deploy platforms before applying for the role." },
+        { "type": "lede", "text": "Not slogans — tools I've used, errors I've debugged, and trade‑offs I can articulate. The full chain: Dockerfile, Kubernetes, CI pipeline, reverse proxy, database, application code. Signed, attested, policy‑gated, publicly deployed." },
+        { "type": "pills", "items": [
+          { "text": "container engineering",   "variant": "ok" },
+          { "text": "kubernetes operations",   "variant": "ok" },
+          { "text": "supply‑chain security",   "variant": "ok" },
+          { "text": "CI/CD",                   "variant": "ok" },
+          { "text": "edge networking",         "variant": "ok" },
+          { "text": "honest about gaps",       "variant": "warn" }
+        ]},
+        { "type": "body", "text": "↑ Scroll back up to try the tutor frontend." }
+      ]
+    }
+  ]
+}

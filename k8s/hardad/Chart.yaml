@@ -2,5 +2,9 @@ apiVersion: v2
 name: hardad
 description: Swedish language tutor — Docker supply-chain demo
 type: application
-version: 0.1.0
-appVersion: "0.1.0"
+# Chart version bumped for the breaking Secret-schema change
+# (DEMO_ACCESS_TOKEN → ADMIN_TOKEN) and the multi-user auth + CEFR-scoring
+# app release. Existing installs must recreate the `hardad-secrets` Secret
+# AND run the DB migration from README §"Kubernetes Secret".
+version: 0.2.0
+appVersion: "0.2.0"

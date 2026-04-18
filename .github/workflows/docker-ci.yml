@@ -16,10 +16,28 @@ jobs:
       # 1. Checkout the code.
       - name: Checkout
         uses: actions/checkout@v4
-    
+
+      # 1a. Run the test suite before spending build/scan budget. A red test
+      # run should fail the pipeline here rather than after a 2+ minute
+      # multi-arch buildx + Scout cycle.
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install project
+        run: uv sync --frozen
+
+      - name: Run tests
+        env:
+          # app.config.Settings requires these at import time (Field(...)).
+          ANTHROPIC_API_KEY: test-key-not-used-by-tests
+          ADMIN_TOKEN: test-admin-token-not-used-by-tests
+        run: uv run pytest -q
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-    
+
       # 2. Set up BuildKit with the docker-container driver.
       - name: Set up Buildx
         uses: docker/setup-buildx-action@v3
