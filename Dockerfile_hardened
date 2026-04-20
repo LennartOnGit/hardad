@@ -5,6 +5,7 @@ COPY uv.lock pyproject.toml ./
 RUN uv sync --frozen --no-dev
 
 FROM dhi.io/python:3.13
+LABEL org.opencontainers.image.base.name="dhi.io/python:3.13"
 WORKDIR /app
 COPY --from=builder --chown=nonroot:nonroot /app/.venv /app/.venv
 COPY --chown=nonroot:nonroot ./app ./app
