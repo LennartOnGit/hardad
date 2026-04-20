@@ -1,94 +1,30 @@
 {
   "_meta": {
-    "description": "Editable slide content for the Härdad build-journal presentation. Each slide is a flat list of typed blocks. Reordering a slide only needs a JSON edit — no JSX touch. Recognised block types: eyebrow, title, lede, body, pills, stats, table, arch, callout, sc-layers.",
+    "description": "Editable slide content for the Härdad build-journal presentation. Each slide is a flat list of typed blocks. Reordering a slide only needs a JSON edit - no JSX touch. Recognised block types: eyebrow, title, lede, body, pills, stats, table, arch, callout, sc-layers, sbom-compare.",
     "blockTypes": {
-      "eyebrow":   { "text": "small uppercase label above the title" },
-      "title":     { "text": "H2 title (H1 is rendered for type='title-hero')", "hero": "optional boolean — render as H1" },
-      "lede":      { "text": "larger intro paragraph", "html": "optional HTML override" },
-      "body":      { "text": "paragraph text", "html": "optional HTML override for inline <code>/<em>/<strong>" },
-      "pills":     { "items": [{"text": "label", "variant": "ok|warn|(none)"}] },
-      "stats":     { "items": [{"k": "eyebrow", "v": "big number", "d": "footer", "dClass": "optional 'neg'", "vSmall": "optional true"}] },
-      "table":     { "headers": ["col labels"], "rows": [[{"text": "cell", "class": "good|bad|mono|(none)"}]], "maxWidth": "optional px" },
-      "arch":      { "items": [{"tag": "node", "name": "...", "label": "...", "indent": 0}, {"tag": "arrow", "text": "..."}] },
-      "callout":   { "text": "code block text" },
-      "sc-layers": { "items": [{"level": "L1", "color": "err|l-c2|ok", "title": "...", "desc": "..."}] }
+      "eyebrow":      { "text": "small uppercase label above the title" },
+      "title":        { "text": "H2 title (H1 is rendered for type='title-hero')", "hero": "optional boolean - render as H1" },
+      "lede":         { "text": "larger intro paragraph", "html": "optional HTML override" },
+      "body":         { "text": "paragraph text", "html": "optional HTML override for inline <code>/<em>/<strong>" },
+      "pills":        { "items": [{"text": "label", "variant": "ok|warn|(none)"}] },
+      "stats":        { "items": [{"k": "eyebrow", "v": "big number", "d": "footer", "dClass": "optional 'neg'", "vSmall": "optional true"}] },
+      "table":        { "headers": ["col labels"], "rows": [[{"text": "cell", "class": "good|bad|mono|(none)"}]], "maxWidth": "optional px" },
+      "arch":         { "items": [{"tag": "node", "name": "...", "label": "...", "indent": 0}, {"tag": "arrow", "text": "..."}] },
+      "callout":      { "text": "code block text" },
+      "sc-layers":    { "items": [{"level": "L1", "color": "err|l-c2|ok", "title": "...", "desc": "..."}] },
+      "image":        { "src": "path under /static/ (e.g. img/sigstore-auth.png)", "alt": "a11y text", "caption": "optional caption below", "maxWidth": "optional px number" },
+      "sbom-compare": { "items": [{"label": "caption shown above panel", "src": "path under /static/ (e.g. sbom/baseline.svg)", "variant": "optional 'ok' accent"}] }
     }
   },
 
   "slides": [
     {
-      "id": "00-demo",
-      "label": "00 DEMO · Block cheatsheet",
-      "blocks": [
-        { "type": "eyebrow", "text": "DEMO · block cheatsheet (dev only)" },
-        { "type": "title", "hero": true, "text": "Every block type, rendered once." },
-        { "type": "lede", "html": "Each section below shows one <code>blockTypes</code> entry from <code>slides.json</code>. Delete this slide before shipping." },
-
-        { "type": "eyebrow", "text": "eyebrow" },
-        { "type": "body", "html": "<code>{ \"type\": \"eyebrow\", \"text\": \"...\" }</code> — small uppercase label above a title." },
-
-        { "type": "eyebrow", "text": "title (hero + normal)" },
-        { "type": "title", "hero": true, "text": "title · hero=true → H1" },
-        { "type": "title", "text": "title · hero omitted → H2" },
-        { "type": "body", "html": "<code>{ \"type\": \"title\", \"hero\": true, \"text\": \"...\" }</code> — set <code>hero</code> only on slide 01." },
-
-        { "type": "eyebrow", "text": "lede" },
-        { "type": "lede", "html": "lede · larger intro paragraph. Supports <code>text</code> or <code>html</code>." },
-
-        { "type": "eyebrow", "text": "body" },
-        { "type": "body", "html": "body · paragraph text, optional <code>html</code> for <em>inline</em> <strong>markup</strong>." },
-
-        { "type": "eyebrow", "text": "pills" },
-        { "type": "pills", "items": [
-          { "text": "variant omitted (neutral)" },
-          { "text": "variant: ok", "variant": "ok" },
-          { "text": "variant: warn", "variant": "warn" }
-        ]},
-
-        { "type": "eyebrow", "text": "stats" },
-        { "type": "stats", "items": [
-          { "k": "eyebrow (k)", "v": "big number (v)", "d": "footer (d)" },
-          { "k": "dClass: neg", "v": "−42%", "d": "red footer", "dClass": "neg" },
-          { "k": "vSmall: true", "v": "small value text", "d": "for longer strings", "vSmall": true }
-        ]},
-
-        { "type": "eyebrow", "text": "table" },
-        { "type": "table",
-          "headers": ["cell class", "example", "note"],
-          "rows": [
-            [ {"text":"(none)"},  {"text":"plain"},          {"text":"default body font"} ],
-            [ {"text":"mono"},    {"text":"3.5.5-1","class":"mono"}, {"text":"monospace","class":"mono"} ],
-            [ {"text":"good"},    {"text":"✅ pass","class":"good"}, {"text":"green","class":"good"} ],
-            [ {"text":"bad"},     {"text":"✗ fail","class":"bad"},   {"text":"red","class":"bad"} ]
-          ]
-        },
-        { "type": "body", "html": "Optional <code>maxWidth</code> (px number) constrains the table." },
-
-        { "type": "eyebrow", "text": "arch" },
-        { "type": "arch", "items": [
-          { "tag": "node",  "name": "node", "label": "label" },
-          { "tag": "arrow", "text": "↓ arrow between nodes" },
-          { "tag": "node",  "name": "indented node (indent: 24)", "label": "child", "indent": 24 }
-        ]},
-
-        { "type": "eyebrow", "text": "callout" },
-        { "type": "callout", "text": "callout · preformatted code block\n$ second line\n$ third line" },
-
-        { "type": "eyebrow", "text": "sc-layers" },
-        { "type": "sc-layers", "items": [
-          { "level": "L1", "color": "err",   "title": "color: err",   "desc": "red swatch" },
-          { "level": "L2", "color": "l-c2",  "title": "color: l-c2",  "desc": "amber swatch" },
-          { "level": "L3", "color": "ok",    "title": "color: ok",    "desc": "green swatch" }
-        ]}
-      ]
-    },
-    {
       "id": "01-title",
       "label": "01 Title",
       "blocks": [
 
-        { "type": "title", "hero": true, "text": "härdad - a Swedish tutor hardened all the way down." },
-        { "type": "lede", "html": "A conversational Swedish‑language tutor powered by Anthropic Claude. The application is the vehicle — the interesting part is everything <em>attached</em> to the image: signed evidence about how it was built, what's in it, and who vouches for it." },
+        { "type": "title", "hero": true, "text": "härdad - a Swedish tutor hardened all the way down" },
+        { "type": "lede", "html": "A conversational Swedish‑language tutor powered by Anthropic Claude. The application is the vehicle - the interesting part is everything <em>attached</em> to the image: signed evidence about how it was built, what's in it, and who vouches for it." },
         { "type": "pills", "items": [
           { "text": "Docker Hardened Images" },
           { "text": "Sigstore · cosign keyless" },
@@ -103,105 +39,110 @@
       "id": "02-premise",
       "label": "02 Premise",
       "blocks": [
-        { "type": "eyebrow", "text": "Phase 0 · The premise" },
-        { "type": "title", "text": "The interesting part isn't the app. It's the evidence." },
-        { "type": "body", "html": "The project name is <strong>härdad</strong> — Swedish for \"hardened.\" All technical references use the ASCII form <code>hardad</code> because, as the project taught me the hard way, non‑ASCII characters break build tooling." },
-        { "type": "stats", "items": [
-          { "k": "Focused work", "v": "~10 days", "d": "from zero knowledge" },
-          { "k": "Artifacts shipped", "v": "signed", "d": "+ attested + policy‑gated" },
-          { "k": "Deployed on", "v": "k3s", "d": "publicly reachable" }
-        ]}
+        { "type": "eyebrow", "text": "The starting point" },
+        { "type": "title", "text": "Started with python:3.13-slim. Measured what came with it" },
+        { "type": "body", "html": "Before anything could claim to be <em>hardened</em>, I needed a baseline. Same FastAPI app, built on <code>python:3.13-slim</code> - the canonical community base. No opinions layered on top. This is the measurement against which every later change was compared." },
+        { "type": "table",
+          "headers": ["Metric", "Baseline"],
+          "rows": [
+            [ {"text":"Image size"},            {"text":"89 MB","class":"mono"} ],
+            [ {"text":"Total packages"},        {"text":"167","class":"mono"} ],
+            [ {"text":"Debian packages"},       {"text":"122","class":"mono"} ],
+            [ {"text":"Python packages"},       {"text":"36","class":"mono"} ],
+            [ {"text":"Total CVEs"},            {"text":"23","class":"mono"} ],
+            [ {"text":"Critical + High CVEs"},  {"text":"0","class":"good"} ]
+          ]
+        },
+        { "type": "body", "html": "Zero Critical, zero High - deceptively clean. The baseline's Python binaries aren't indexed as a scannable package, so upstream CPython CVEs don't surface against them. Visibility is part of what the next slide buys." }
       ]
     },
     {
       "id": "03-dhi-delta",
       "label": "03 DHI Delta",
       "blocks": [
-        { "type": "eyebrow", "text": "Phase 1 · Step 5 — Docker Hardened Images" },
-        { "type": "title", "text": "-49% image, -65% Debian packages, -67% criticals." },
+        { "type": "eyebrow", "text": "Docker Hardened Images" },
+        { "type": "title", "text": "Swap the base" },
         { "type": "body", "html": "Same Python dependency closure, byte‑for‑byte. Only the base layer changed: from <code>python:3.13-slim</code> to <code>dhi.io/python:3.13</code>." },
         { "type": "table",
           "headers": ["Metric", "Baseline", "Hardened", "Delta"],
           "rows": [
-            [ {"text":"Image size"}, {"text":"86 MB","class":"mono"}, {"text":"44 MB","class":"mono"}, {"text":"−49%","class":"good"} ],
-            [ {"text":"Total packages"}, {"text":"167","class":"mono"}, {"text":"91","class":"mono"}, {"text":"−46%","class":"good"} ],
-            [ {"text":"Debian packages"}, {"text":"122","class":"mono"}, {"text":"43","class":"mono"}, {"text":"−65%","class":"good"} ],
-            [ {"text":"Python packages"}, {"text":"36","class":"mono"}, {"text":"36","class":"mono"}, {"text":"unchanged","class":"mono"} ],
-            [ {"text":"Total CVEs"}, {"text":"33","class":"mono"}, {"text":"20","class":"mono"}, {"text":"−39%","class":"good"} ],
-            [ {"text":"Critical + High CVEs"}, {"text":"3","class":"bad"}, {"text":"1","class":"good"}, {"text":"−67%","class":"good"} ]
+            [ {"text":"Image size"},            {"text":"89 MB","class":"mono"}, {"text":"44 MB","class":"mono"}, {"text":"−51%","class":"good"} ],
+            [ {"text":"Total packages"},        {"text":"167","class":"mono"}, {"text":"91","class":"mono"},  {"text":"−46%","class":"good"} ],
+            [ {"text":"Debian packages"},       {"text":"122","class":"mono"}, {"text":"43","class":"mono"},  {"text":"−65%","class":"good"} ],
+            [ {"text":"Python packages"},       {"text":"36","class":"mono"},  {"text":"36","class":"mono"},  {"text":"unchanged","class":"mono"} ],
+            [ {"text":"Total CVEs"},            {"text":"23","class":"mono"},  {"text":"16","class":"mono"},  {"text":"−30%","class":"good"} ],
+            [ {"text":"Critical + High CVEs"},  {"text":"0","class":"good"},   {"text":"2","class":"bad"},    {"text":"see note","class":"mono"} ]
           ]
-        }
+        },
+        { "type": "body", "html": "<strong>The Critical + High caveat.</strong> Both images ship CPython 3.13.13. The hardened scan surfaces 1 Critical (<code>CVE-2026-6100</code>) and 1 High (<code>CVE-2026-4786</code>) against the Python runtime - both freshly disclosed, currently <code>not fixed</code> upstream. The baseline's Python isn't mapped to these advisories; whether the same code paths are vulnerable is a separate question" },
+        { "type": "body", "html": "<strong>Docker's 7‑day DHI patch SLA</strong> commits to shipping a rebuilt image within a week of a Critical/High fix landing upstream. \"Not fixed\" in a DHI scan has a tight, contractual resolution window; the community image has no equivalent guarantee." }
       ]
     },
     {
-      "id": "04-openssl",
-      "label": "04 openssl beat",
+      "id": "04-sbom",
+      "label": "04 SBOM",
       "blocks": [
-        { "type": "eyebrow", "text": "The demo's strongest single beat" },
-        { "type": "title", "text": "Same upstream. One patch level newer. Zero highs." },
-        { "type": "body", "html": "The community pipeline waits for the Debian release cadence; the DHI pipeline rebuilds nightly and had the patch. That lag is the entire DHI value proposition in one comparison." },
-        { "type": "table", "maxWidth": 520,
-          "headers": ["openssl", "Baseline", "Hardened"],
-          "rows": [
-            [ {"text":"Version"}, {"text":"3.5.5-1~deb13u1","class":"mono"}, {"text":"3.5.5-1~deb13u2","class":"mono"} ],
-            [ {"text":"Total CVEs"}, {"text":"8","class":"bad"}, {"text":"1","class":"good"} ],
-            [ {"text":"High CVEs"}, {"text":"3","class":"bad"}, {"text":"0","class":"good"} ]
-          ]
-        },
-        { "type": "body", "html": "<strong>What disappeared from the Debian layer (80 packages removed):</strong> apt, dpkg, bash, dash, coreutils, findutils, grep, sed, tar, systemd, pam, adduser, passwd, login, shadow — and the entire Perl runtime." }
+        { "type": "eyebrow", "text": "Same app. See the bloat" },
+        { "type": "title", "text": "SBOM diff, visualised." },
+        { "type": "body", "html": "Both images ship the identical FastAPI app and the same 36‑package Python dependency closure. Every node below the <code>application</code> root belongs to the base layer - that's what changed between them. The visual footprint <em>is</em> the attack surface." },
+        { "type": "sbom-compare", "items": [
+          { "label": "python:3.13-slim · 167 packages · 122 Debian · 89 MB", "src": "sbom/baseline.svg" },
+          { "label": "dhi.io/python:3.13 · 91 packages · 43 Debian · 44 MB", "src": "sbom/hardened.svg", "variant": "ok" }
+        ]},
+        { "type": "body", "html": "Each panel scrolls independently. The two SVGs render at the same scale - scrollbar thumb length is a direct read on relative bloat. Rendered from the build‑time SPDX SBOMs in <code>docs/sbom/</code> via mermaid." }
       ]
     },
     {
       "id": "05-attestations",
       "label": "05 Attestations",
       "blocks": [
-        { "type": "eyebrow", "text": "Step 6 — Build‑time SBOM + SLSA provenance" },
-        { "type": "title", "html": "SBOM as inventory vs SBOM as <em>evidence.</em>" },
-        { "type": "body", "html": "Post‑hoc SBOMs (scanners) read <code>/var/lib/dpkg/status</code> after the fact. Build‑time SBOMs are emitted <em>during</em> the build, by the system that knows exactly what it installed." },
+        { "type": "eyebrow", "text": "Build‑time evidence + keyless signing" },
+        { "type": "title", "html": "Evidence <em>attached</em> to the image, not about it" },
+        { "type": "body", "html": "Post‑hoc SBOMs (scanners) read <code>/var/lib/dpkg/status</code> after the fact. Build‑time attestations are emitted <em>during</em> the build by the system that knows exactly what it installed, then signed and recorded as sibling OCI artifacts anchored in Sigstore's Rekor transparency log." },
         { "type": "arch", "items": [
           { "tag": "node", "name": "OCI image manifest", "label": "digest" },
           { "tag": "arrow", "text": "└── sibling artifacts (index)" },
           { "tag": "node", "name": "SPDX SBOM attestation", "label": "in‑toto", "indent": 24 },
           { "tag": "node", "name": "SLSA provenance attestation", "label": "in‑toto", "indent": 24 },
-          { "tag": "node", "name": "cosign signature (personal · Google OIDC)", "label": "sigstore", "indent": 24 },
           { "tag": "node", "name": "cosign signature (CI · GitHub OIDC)", "label": "sigstore", "indent": 24 }
-        ]}
-      ]
-    },
-    {
-      "id": "06-sigstore",
-      "label": "06 Sigstore",
-      "blocks": [
-        { "type": "eyebrow", "text": "Step 7 — cosign keyless signing" },
-        { "type": "title", "text": "No long‑lived private key. Ever." },
-        { "type": "body", "html": "cosign keyless inverts the traditional PGP/SSH model. You're not trusted because you hold a secret key. You're trusted because Fulcio observed your OIDC authentication and recorded that observation in a public log." },
-        { "type": "stats", "items": [
-          { "k": "Fulcio", "v": "Short‑lived CA", "d": "10‑minute OIDC‑bound cert", "vSmall": true },
-          { "k": "Rekor",  "v": "Merkle log",     "d": "append‑only transparency",  "vSmall": true },
-          { "k": "cosign", "v": "CLI",            "d": "signs by digest, never tag", "vSmall": true }
         ]},
-        { "type": "callout", "text": "DIGEST=$(docker buildx imagetools inspect \\\n  lennartondocker/hardad:hardened --format '{{.Manifest.Digest}}')\ncosign sign lennartondocker/hardad@${DIGEST}" }
+        { "type": "body", "html": "No long‑lived private key. cosign keyless inverts the PGP/SSH model: you're not trusted because you hold a secret, you're trusted because Fulcio observed your OIDC authentication and recorded that observation publicly." },
+        { "type": "callout", "text": "DIGEST=$(docker buildx imagetools inspect \\\n  lennartondocker/hardad:hardened --format '{{.Manifest.Digest}}')\ncosign sign lennartondocker/hardad@${DIGEST}" },
+        { "type": "image", "src": "img/sigstore-auth.png", "alt": "Browser page confirming sigstore OIDC authentication succeeded", "caption": "cosign opens a browser → Fulcio verifies OIDC → short-lived cert issued → sign by digest. No key material ever touched the laptop.", "maxWidth": 720 }
       ]
     },
     {
-      "id": "07-slsa",
-      "label": "07 SLSA",
+      "id": "06-slsa",
+      "label": "06 SLSA",
       "blocks": [
-        { "type": "eyebrow", "text": "Step 8 — CI pipeline + SLSA levels" },
-        { "type": "title", "text": "SLSA levels are per‑artifact, not contagious." },
-        { "type": "body", "html": "Building an L1 image FROM an L3 DHI base doesn't reduce the base to L1. The base image's attestations remain independently verifiable. The composite has its own (weaker) provenance. Consumers trace each layer independently." },
+        { "type": "eyebrow", "text": "CI pipeline + SLSA levels" },
+        { "type": "title", "text": "From laptop build to GitHub Actions: L1 → L2" },
+        { "type": "body", "html": "Attestations are only as trustworthy as the environment that produced them. Early builds ran on my laptop - real cosign signatures, real SBOM attestations, but a hostile observer has no way to tell whether I ran the declared build steps or quietly swapped them for others. Moving the build to GitHub Actions gave the attestations a custodian that isn't me." },
+        { "type": "table",
+          "headers": ["What changed", "Local build (before)", "GitHub Actions (now)"],
+          "rows": [
+            [ {"text":"Build host"},            {"text":"MacBook (arm64)","class":"mono"},             {"text":"ubuntu-latest VM · ephemeral","class":"mono"} ],
+            [ {"text":"Signing OIDC identity"}, {"text":"Personal GitHub account","class":"mono"},     {"text":"Workflow token · repo-scoped","class":"mono"} ],
+            [ {"text":"Provenance author"},     {"text":"Self-attested","class":"bad"},                {"text":"GitHub-attested","class":"good"} ],
+            [ {"text":"Source state"},          {"text":"Working tree (may be dirty)","class":"bad"},  {"text":"Exact commit SHA + ref","class":"good"} ],
+            [ {"text":"Build environment"},     {"text":"Whatever's on the laptop","class":"bad"},     {"text":"Pinned in workflow YAML","class":"good"} ],
+            [ {"text":"SLSA Build Level"},      {"text":"L1","class":"bad"},                           {"text":"L2","class":"good"} ]
+          ]
+        },
         { "type": "sc-layers", "items": [
-          { "level": "L1", "color": "err",  "title": "Laptop build · provenance exists but forgeable", "desc": "Real provenance, weak guarantees" },
-          { "level": "L2", "color": "l-c2", "title": "Hosted build service · signed provenance",        "desc": "Defeats post‑build tampering" },
-          { "level": "L3", "color": "ok",   "title": "Hardened build platform · isolated env, unreachable keys", "desc": "Defeats a malicious build step trying to forge provenance" }
-        ]}
+          { "level": "L1", "color": "err",  "title": "Laptop build · provenance exists but forgeable",           "desc": "Real provenance, weak guarantees · where this project started" },
+          { "level": "L2", "color": "l-c2", "title": "Hosted build service · signed provenance",                 "desc": "Defeats post-build tampering · where it is today (Actions + buildx provenance:mode=max + cosign keyless)" },
+          { "level": "L3", "color": "ok",   "title": "Hardened build platform · isolated env, unreachable keys", "desc": "Defeats a malicious build step forging provenance · requires slsa-github-generator or equivalent, out of scope here" }
+        ]},
+        { "type": "body", "html": "<strong>SLSA is per-artifact, not contagious.</strong> Building an L2 image FROM an L3 DHI base doesn't drag the base down to L2. Each layer's attestations are independently verifiable; a consumer can trace the DHI base to Docker's L3 provenance, and this image to its own L2 provenance, and trust each accordingly." },
+        { "type": "callout", "html": "Workflow source: <a href=\"https://github.com/LennartOnGit/hardad/blob/main/.github/workflows/docker-ci.yml\" target=\"_blank\" rel=\"noopener\">github.com/LennartOnGit/hardad/.github/workflows/docker-ci.yml</a>\nbuildx with provenance: mode=max, cosign sign-by-digest under GitHub OIDC, Scout policy gate." }
       ]
     },
     {
       "id": "08-scout",
       "label": "08 Scout",
       "blocks": [
-        { "type": "eyebrow", "text": "Step 8 — Docker Scout policy evaluation" },
+        { "type": "eyebrow", "text": "Step 8 - Docker Scout policy evaluation" },
         { "type": "title", "text": "Three out of four passing. Honestly." },
         { "type": "table",
           "headers": ["Policy", "Result"],
@@ -212,14 +153,14 @@
             [ {"text":"Supply chain attestations"},                    {"text":"✅ Compliant","class":"good"} ]
           ]
         },
-        { "type": "body", "html": "The \"only hardened base images\" policy returns <em>no data</em> because Scout's base‑image detection can't trace through multi‑stage COPYs to identify DHI lineage. Honest talking point: <em>\"I use DHI but the automated detection couldn't verify it — in production I'd configure an exception or adjust the detection.\"</em>" }
+        { "type": "body", "html": "The \"only hardened base images\" policy returns <em>no data</em> because Scout's base‑image detection can't trace through multi‑stage COPYs to identify DHI lineage. Honest talking point: <em>\"I use DHI but the automated detection couldn't verify it - in production I'd configure an exception or adjust the detection.\"</em>" }
       ]
     },
     {
       "id": "09-k3s",
       "label": "09 k3s",
       "blocks": [
-        { "type": "eyebrow", "text": "Phase 1 · Steps 11–13 — Deployment" },
+        { "type": "eyebrow", "text": "Phase 1 · Steps 11–13 - Deployment" },
         { "type": "title", "text": "k3s · Helm · Apache reverse proxy · NodePort." },
         { "type": "body", "html": "Bitnami PostgreSQL chart in a <code>tutor</code> namespace. Custom Helm chart for the app: 2 replicas, values.yaml + Kubernetes Secrets split, liveness/readiness probes, NodePort Service. Apache proxies <code>/docker_demo</code> to <code>192.168.177.30:30080</code>." },
         { "type": "arch", "items": [
@@ -247,7 +188,7 @@
             [ {"text":"Ingress controller"},       {"text":"Bypassed Traefik due to port‑80 conflict with Apache. Used NodePort + Apache proxy. Concept understood; rules not configured in practice."} ],
             [ {"text":"Admission controller"},     {"text":"Planned as Phase 3 (Sigstore Policy Controller). Trust model understood, not yet implemented."} ],
             [ {"text":"Multi‑arch CI"},            {"text":"Local arm64 builds deploy to the arm64 k3s cluster. CI produces amd64 for signing/policy demos. QEMU emulation is a known two‑line addition."} ],
-            [ {"text":"Voice + MCP features"},     {"text":"Phase 2. Infrastructure ready — Whisper (Mac‑native, MLX) + Piper TTS (sv_SE‑nst‑medium) reachable over LAN."} ]
+            [ {"text":"Voice + MCP features"},     {"text":"Phase 2. Infrastructure ready - Whisper (Mac‑native, MLX) + Piper TTS (sv_SE‑nst‑medium) reachable over LAN."} ]
           ]
         }
       ]
@@ -258,7 +199,7 @@
       "blocks": [
         { "type": "eyebrow", "text": "What this proves" },
         { "type": "title", "text": "I deploy platforms before applying for the role." },
-        { "type": "lede", "text": "Not slogans — tools I've used, errors I've debugged, and trade‑offs I can articulate. The full chain: Dockerfile, Kubernetes, CI pipeline, reverse proxy, database, application code. Signed, attested, policy‑gated, publicly deployed." },
+        { "type": "lede", "text": "Not slogans - tools I've used, errors I've debugged, and trade‑offs I can articulate. The full chain: Dockerfile, Kubernetes, CI pipeline, reverse proxy, database, application code. Signed, attested, policy‑gated, publicly deployed." },
         { "type": "pills", "items": [
           { "text": "container engineering",   "variant": "ok" },
           { "text": "kubernetes operations",   "variant": "ok" },

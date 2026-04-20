@@ -13,6 +13,4 @@ BRIEF.md
 buildx_sign_attest.sh
 .claude/
 tests/
-docs/
-
 scripts/

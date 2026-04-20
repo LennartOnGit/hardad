@@ -1,0 +1,2417 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "hardad",
+  "documentNamespace": "https://docker.com/docker-scout/image/hardad-16610d7b-9927-4d44-a753-c06f63c210ba",
+  "creationInfo": {
+    "creators": [
+      "Organization: Docker, Inc",
+      "Tool: docker-scout-1.20.3"
+    ],
+    "created": "2026-04-20T09:09:46Z"
+  },
+  "packages": [
+    {
+      "name": "hardad",
+      "SPDXID": "SPDXRef-DocumentRoot",
+      "versionInfo": "hardened",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:oci/hardad@sha256:3df4f30d2ca773713c26b8501bb9c49993ca6bc1a47c89b01ce990336e3f0875?repository_url=docker.io&tag=hardened"
+        }
+      ],
+      "primaryPackagePurpose": "CONTAINER"
+    },
+    {
+      "name": "base-files",
+      "SPDXID": "SPDXRef-Package-f7f688f0ad52acae46bf3241a4425fb8",
+      "versionInfo": "13.8+deb13u4",
+      "supplier": "Person: Santiago Vila <sanvila@debian.org>",
+      "originator": "Person: Santiago Vila <sanvila@debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "06cd860d00a21c98af4790eb8afaf14bccdaa84e"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-or-later",
+      "description": "Debian base system miscellaneous files\n This package contains the basic filesystem hierarchy of a Debian system, and\n several important miscellaneous files, such as /etc/debian_version,\n /etc/host.conf, /etc/issue, /etc/motd, /etc/profile, and others,\n and the text of several common licenses in use on Debian systems.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/base-files@13.8%2Bdeb13u4?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "bzip2",
+      "SPDXID": "SPDXRef-Package-c9fbb1e6159fd2f3708cd103cda4f593",
+      "versionInfo": "1.0.8-6",
+      "supplier": "Person: Anibal Monsalve Salazar <anibal@debian.org>",
+      "originator": "Person: Anibal Monsalve Salazar <anibal@debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "9b58b1951fd0aa0d46918e0f0f251b948cff339a"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-only",
+      "description": "high-quality block-sorting file compressor library - runtime\n This package contains libbzip2 which is used by the bzip2 compressor.\n .\n bzip2 is a freely available, patent free, data compressor.\n .\n bzip2 compresses files using the Burrows-Wheeler block-sorting text\n compression algorithm, and Huffman coding.  Compression is generally\n considerably better than that achieved by more conventional\n LZ77/LZ78-based compressors, and approaches the performance of the PPM\n family of statistical compressors.\n .\n The archive file format of bzip2 (.bz2) is incompatible with that of its\n predecessor, bzip (.bz).",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/bzip2@1.0.8-6?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "ca-certificates",
+      "SPDXID": "SPDXRef-Package-e74252795d7e73ea88f0c17bec3531e3",
+      "versionInfo": "20250419",
+      "supplier": "Person: Julien Cristau <jcristau@debian.org>",
+      "originator": "Person: Julien Cristau <jcristau@debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "4bf039e3648230ea6fafc2f0d25a72b97a6864cb"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-only OR GPL-2.0-or-later OR MPL-2.0",
+      "description": "Common CA certificates\n Contains the certificate authorities shipped with Mozilla's browser to allow\n SSL-based applications to check for the authenticity of SSL connections.\n .\n Please note that Debian can neither confirm nor deny whether the\n certificate authorities whose certificates are included in this package\n have in any way been audited for trustworthiness or RFC 3647 compliance.\n Full responsibility to assess them belongs to the local system\n administrator.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/ca-certificates@20250419?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "db5.3",
+      "SPDXID": "SPDXRef-Package-2bb6caac75a6f4cabfc0d78016a8ebe1",
+      "versionInfo": "5.3.28+dfsg2-9",
+      "supplier": "Person: Debian QA Group <packages@qa.debian.org>",
+      "originator": "Person: Debian QA Group <packages@qa.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "9e1878f20da084c8c163c076d770973e3199f1b8"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause OR GPL-3.0-only OR MS-PL OR Sleepycat OR X11 OR Zlib",
+      "description": "Berkeley v5.3 Database Libraries [runtime]\n This is the runtime package for programs that use the v5.3 Berkeley\n database library.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/db5.3@5.3.28%2Bdfsg2-9?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "debconf",
+      "SPDXID": "SPDXRef-Package-5e0124d66015307aa6f05eb1be5f5ea9",
+      "versionInfo": "1.5.91",
+      "supplier": "Person: Debconf Developers <debconf-devel@lists.alioth.debian.org>",
+      "originator": "Person: Debconf Developers <debconf-devel@lists.alioth.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "c7f5dfb2a42454d345ba37138811b39b83362841"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-2-Clause",
+      "description": "Debian configuration management system\n Debconf is a configuration management system for debian packages. Packages\n use Debconf to ask questions when they are installed.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/debconf@1.5.91?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "gawk",
+      "SPDXID": "SPDXRef-Package-812b74ca4a1b79584b3558ea3f92ded8",
+      "versionInfo": "1:5.2.1-2+b2",
+      "supplier": "Person: Adrian Bunk <bunk@debian.org>",
+      "originator": "Person: Adrian Bunk <bunk@debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "66c45883f9c126fc85bd8c5b7cb947d81bb3ddb0"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-3.0-only OR GPL-3.0-or-later",
+      "description": "GNU awk, a pattern scanning and processing language\n `awk', a program that you can use to select particular records in a\n file and perform operations upon them.\n .\n Gawk is the GNU Project's implementation of the AWK programming language.\n It conforms to the definition of the language in the POSIX 1003.2 Command\n Language And Utilities Standard. This version in turn is based on the\n description in The AWK Programming Language, by Aho, Kernighan, and\n Weinberger, with the additional features defined in the System V Release\n 4 version of UNIX awk. Gawk also provides more recent Bell Labs awk\n extensions, and some GNU-specific extensions.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/gawk@1%3A5.2.1-2%2Bb2?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "gcc-14-base",
+      "SPDXID": "SPDXRef-Package-26ab7fa49a859230998e229455240cb5",
+      "versionInfo": "14.2.0-19",
+      "supplier": "Person: Debian GCC Maintainers <debian-gcc@lists.debian.org>",
+      "originator": "Person: Debian GCC Maintainers <debian-gcc@lists.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "48d5f38302f0e66e7d341847eabceba9e5b9d40a"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GFDL-1.2-only OR GPL-3.0-only",
+      "description": "GCC, the GNU Compiler Collection (base package)\n This package contains files common to all languages and libraries\n contained in the GNU Compiler Collection (GCC).",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/gcc-14-base@14.2.0-19?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "gcc-14",
+      "SPDXID": "SPDXRef-Package-7f7e7b711aaaa224d1ab3f6e22951c64",
+      "versionInfo": "14.2.0-19",
+      "supplier": "Person: Debian GCC Maintainers <debian-gcc@lists.debian.org>",
+      "originator": "Person: Debian GCC Maintainers <debian-gcc@lists.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "3e4d591f57c6e43863406d324ce09d6f8b7c82a3"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GFDL-1.2-only OR GPL-3.0-only",
+      "description": "GCC, the GNU Compiler Collection (base package)\n This package contains files common to all languages and libraries\n contained in the GNU Compiler Collection (GCC).",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/gcc-14@14.2.0-19?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "glibc",
+      "SPDXID": "SPDXRef-Package-68ed8966865bee340e50e3cffefe9c38",
+      "versionInfo": "2.41-12+deb13u2",
+      "supplier": "Person: GNU Libc Maintainers <debian-glibc@lists.debian.org>",
+      "originator": "Person: GNU Libc Maintainers <debian-glibc@lists.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "22407d28f8743e8a87bcee88023902f0029fe09d"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-2-Clause OR BSL-1.0 OR FSFAP OR GPL-2.0-only OR GPL-2.0-or-later OR GPL-3.0-only OR GPL-3.0-or-later OR ISC OR LGPL-2.0-only OR LGPL-2.0-or-later OR LGPL-2.1-only OR LGPL-2.1-or-later OR LGPL-3.0-only OR LGPL-3.0-or-later OR SunPro OR Unicode-DFS-2016",
+      "description": "GNU C Library: Shared libraries\n Contains the standard libraries that are used by nearly all programs on\n the system. This package includes shared versions of the standard C library\n and the standard math library, as well as many others.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/glibc@2.41-12%2Bdeb13u2?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "gmp",
+      "SPDXID": "SPDXRef-Package-d71fcd6c8105140a776255c3d6a91e66",
+      "versionInfo": "2:6.3.0+dfsg-3",
+      "supplier": "Person: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>",
+      "originator": "Person: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "5ac3a2c4ee14ccd1b846fcb5ddfb09d0ee37e1b0"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-only OR GPL-2.0-or-later OR GPL-3.0-only OR GPL-3.0-or-later OR LGPL-3.0-only OR LGPL-3.0-or-later",
+      "description": "Multiprecision arithmetic library\n GNU MP is a programmer's library for arbitrary precision\n arithmetic (ie, a bignum package).  It can operate on signed\n integer, rational, and floating point numeric types.\n .\n It has a rich set of functions, and the functions have a regular\n interface.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/gmp@2%3A6.3.0%2Bdfsg-3?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libbz2-1.0",
+      "SPDXID": "SPDXRef-Package-37c5d908ac1f02b5bd07591a6d352d35",
+      "versionInfo": "1.0.8-6",
+      "supplier": "Person: Anibal Monsalve Salazar <anibal@debian.org>",
+      "originator": "Person: Anibal Monsalve Salazar <anibal@debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "9b58b1951fd0aa0d46918e0f0f251b948cff339a"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-only",
+      "description": "high-quality block-sorting file compressor library - runtime\n This package contains libbzip2 which is used by the bzip2 compressor.\n .\n bzip2 is a freely available, patent free, data compressor.\n .\n bzip2 compresses files using the Burrows-Wheeler block-sorting text\n compression algorithm, and Huffman coding.  Compression is generally\n considerably better than that achieved by more conventional\n LZ77/LZ78-based compressors, and approaches the performance of the PPM\n family of statistical compressors.\n .\n The archive file format of bzip2 (.bz2) is incompatible with that of its\n predecessor, bzip (.bz).",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libbz2-1.0@1.0.8-6?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libc6",
+      "SPDXID": "SPDXRef-Package-494c4af928eeacece08f4c3b32d18695",
+      "versionInfo": "2.41-12+deb13u2",
+      "supplier": "Person: GNU Libc Maintainers <debian-glibc@lists.debian.org>",
+      "originator": "Person: GNU Libc Maintainers <debian-glibc@lists.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "22407d28f8743e8a87bcee88023902f0029fe09d"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-2-Clause OR BSL-1.0 OR FSFAP OR GPL-2.0-only OR GPL-2.0-or-later OR GPL-3.0-only OR GPL-3.0-or-later OR ISC OR LGPL-2.0-only OR LGPL-2.0-or-later OR LGPL-2.1-only OR LGPL-2.1-or-later OR LGPL-3.0-only OR LGPL-3.0-or-later OR SunPro OR Unicode-DFS-2016",
+      "description": "GNU C Library: Shared libraries\n Contains the standard libraries that are used by nearly all programs on\n the system. This package includes shared versions of the standard C library\n and the standard math library, as well as many others.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libc6@2.41-12%2Bdeb13u2?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libcrypt1",
+      "SPDXID": "SPDXRef-Package-8341623ee4bae47746631f18ceda8c57",
+      "versionInfo": "1:4.4.38-1",
+      "supplier": "Person: Marco d'Itri <md@linux.it>",
+      "originator": "Person: Marco d'Itri <md@linux.it>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "0509ead1a0678f08c99d70316b529d41042683c8"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "description": "libcrypt shared library\n libxcrypt is a modern library for one-way hashing of passwords.\n It supports DES, MD5, NTHASH, SUNMD5, SHA-2-256, SHA-2-512, and\n bcrypt-based password hashes\n It provides the traditional Unix 'crypt' and 'crypt_r' interfaces,\n as well as a set of extended interfaces like 'crypt_gensalt'.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libcrypt1@1%3A4.4.38-1?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libdb5.3t64",
+      "SPDXID": "SPDXRef-Package-ae19ac1d15bda68c4aa5e90461209251",
+      "versionInfo": "5.3.28+dfsg2-9",
+      "supplier": "Person: Debian QA Group <packages@qa.debian.org>",
+      "originator": "Person: Debian QA Group <packages@qa.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "9e1878f20da084c8c163c076d770973e3199f1b8"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause OR GPL-3.0-only OR MS-PL OR Sleepycat OR X11 OR Zlib",
+      "description": "Berkeley v5.3 Database Libraries [runtime]\n This is the runtime package for programs that use the v5.3 Berkeley\n database library.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libdb5.3t64@5.3.28%2Bdfsg2-9?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libffi8",
+      "SPDXID": "SPDXRef-Package-468d9f9f055a951e0a6695b99450f166",
+      "versionInfo": "3.4.8-2",
+      "supplier": "Person: Debian GCC Maintainers <debian-gcc@lists.debian.org>",
+      "originator": "Person: Debian GCC Maintainers <debian-gcc@lists.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "adca19e4440931d463de99562ff5920c98d61221"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-or-later OR GPL-3.0-or-later OR MPL-1.1 OR X11",
+      "description": "Foreign Function Interface library runtime\n A foreign function interface is the popular name for the interface that\n allows code written in one language to call code written in another\n language.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libffi8@3.4.8-2?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libffi",
+      "SPDXID": "SPDXRef-Package-d6b2335fd91c0556d1f07350a7c062c2",
+      "versionInfo": "3.4.8-2",
+      "supplier": "Person: Debian GCC Maintainers <debian-gcc@lists.debian.org>",
+      "originator": "Person: Debian GCC Maintainers <debian-gcc@lists.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "adca19e4440931d463de99562ff5920c98d61221"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-or-later OR GPL-3.0-or-later OR MPL-1.1 OR X11",
+      "description": "Foreign Function Interface library runtime\n A foreign function interface is the popular name for the interface that\n allows code written in one language to call code written in another\n language.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libffi@3.4.8-2?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libgcc-s1",
+      "SPDXID": "SPDXRef-Package-7757e41348fbb4eb165d971e24aefb74",
+      "versionInfo": "14.2.0-19",
+      "supplier": "Person: Debian GCC Maintainers <debian-gcc@lists.debian.org>",
+      "originator": "Person: Debian GCC Maintainers <debian-gcc@lists.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "d3ad287a8cd6cd00c1df7f4ea8cb3050e6de9e1b"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GFDL-1.2-only OR GPL-3.0-only",
+      "description": "GCC support library\n Shared version of the support library, a library of internal subroutines\n that GCC uses to overcome shortcomings of particular machines, or\n special needs for some languages.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libgcc-s1@14.2.0-19?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libgmp10",
+      "SPDXID": "SPDXRef-Package-48ba69ad745be2c92c48b2486359ec99",
+      "versionInfo": "2:6.3.0+dfsg-3",
+      "supplier": "Person: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>",
+      "originator": "Person: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "5ac3a2c4ee14ccd1b846fcb5ddfb09d0ee37e1b0"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-only OR GPL-2.0-or-later OR GPL-3.0-only OR GPL-3.0-or-later OR LGPL-3.0-only OR LGPL-3.0-or-later",
+      "description": "Multiprecision arithmetic library\n GNU MP is a programmer's library for arbitrary precision\n arithmetic (ie, a bignum package).  It can operate on signed\n integer, rational, and floating point numeric types.\n .\n It has a rich set of functions, and the functions have a regular\n interface.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libgmp10@2%3A6.3.0%2Bdfsg-3?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "liblzma5",
+      "SPDXID": "SPDXRef-Package-0d22b34f88d505664fd6421511201263",
+      "versionInfo": "5.8.1-1",
+      "supplier": "Person: Sebastian Andrzej Siewior <sebastian@breakpoint.cc>",
+      "originator": "Person: Sebastian Andrzej Siewior <sebastian@breakpoint.cc>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "c63a05e7a72cd682c8b6324f2f33b81381b62cca"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "0BSD OR FSFUL OR FSFULLR OR GPL-2.0-only OR GPL-2.0-or-later OR GPL-3.0-only OR LGPL-2.1-only OR LGPL-2.1-or-later",
+      "description": "XZ-format compression library\n XZ is the successor to the Lempel-Ziv/Markov-chain Algorithm\n compression format, which provides memory-hungry but powerful\n compression (often better than bzip2) and fast, easy decompression.\n .\n The native format of liblzma is XZ; it also supports raw (headerless)\n streams and the older LZMA format used by lzma. (For 7-Zip's related\n format, use the p7zip package instead.)",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/liblzma5@5.8.1-1?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libncursesw6",
+      "SPDXID": "SPDXRef-Package-d3844c290584d158fda1b93bfad5ca6f",
+      "versionInfo": "6.5+20250216-2",
+      "supplier": "Person: Ncurses Maintainers <ncurses@packages.debian.org>",
+      "originator": "Person: Ncurses Maintainers <ncurses@packages.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "a68a3ef6801ef4309d221d2ca49376a38317a9ee"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause OR X11",
+      "description": "shared libraries for terminal handling (wide character support)\n The ncurses library routines are a terminal-independent method of\n updating character screens with reasonable optimization.\n .\n This package contains the shared libraries necessary to run programs\n compiled with ncursesw, which includes support for wide characters.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libncursesw6@6.5%2B20250216-2?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libreadline8t64",
+      "SPDXID": "SPDXRef-Package-1c147f8b550f2121cff5de2da8b2166a",
+      "versionInfo": "8.2-6",
+      "supplier": "Person: Matthias Klose <doko@debian.org>",
+      "originator": "Person: Matthias Klose <doko@debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "84bc8613b93dd6cf4542d0fa82fceca80523fda7"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-only OR GPL-2.0-or-later OR GPL-3.0-only OR GPL-3.0-or-later",
+      "description": "GNU readline and history libraries, run-time libraries\n The GNU readline library aids in the consistency of user interface\n across discrete programs that need to provide a command line\n interface.\n .\n The GNU history library provides a consistent user interface for\n recalling lines of previously typed input.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libreadline8t64@8.2-6?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libsqlite3-0",
+      "SPDXID": "SPDXRef-Package-b07bf35e19d30d52d160ced0ba5e7297",
+      "versionInfo": "3.46.1-7+deb13u1",
+      "supplier": "Person: Laszlo Boszormenyi (GCS) <gcs@debian.org>",
+      "originator": "Person: Laszlo Boszormenyi (GCS) <gcs@debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "be2160bb389d7856f8ff3d4f89c6b58ffb38dcbe"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-only OR GPL-2.0-or-later",
+      "description": "SQLite 3 shared library\n SQLite is a C library that implements an SQL database engine.\n Programs that link with the SQLite library can have SQL database\n access without running a separate RDBMS process.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libsqlite3-0@3.46.1-7%2Bdeb13u1?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libssl3t64",
+      "SPDXID": "SPDXRef-Package-2125d51c5fcf478bebdd94c527da6934",
+      "versionInfo": "3.5.5-1~deb13u2",
+      "supplier": "Person: Debian OpenSSL Team <pkg-openssl-devel@alioth-lists.debian.net>",
+      "originator": "Person: Debian OpenSSL Team <pkg-openssl-devel@alioth-lists.debian.net>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "51110bc8a0d90be1a8987e53f3e7b0f9a50de91c"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0 OR GPL-1.0-only OR GPL-1.0-or-later",
+      "description": "Secure Sockets Layer toolkit - shared libraries\n This package is part of the OpenSSL project's implementation of the SSL\n and TLS cryptographic protocols for secure communication over the\n Internet.\n .\n It provides the libssl and libcrypto shared libraries.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libssl3t64@3.5.5-1~deb13u2?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libstdc++6",
+      "SPDXID": "SPDXRef-Package-5bb59cc08e09d2d13581a4d6a603a8dd",
+      "versionInfo": "14.2.0-19",
+      "supplier": "Person: Debian GCC Maintainers <debian-gcc@lists.debian.org>",
+      "originator": "Person: Debian GCC Maintainers <debian-gcc@lists.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "65d3f264634b4554a7e569cbcf113ae21d457ddb"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GFDL-1.2-only OR GPL-3.0-only",
+      "description": "GNU Standard C++ Library v3\n This package contains an additional runtime library for C++ programs\n built with the GNU compiler.\n .\n libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which\n was included up to g++-2.95. The first version of libstdc++-v3 appeared\n in g++-3.0.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libstdc%2B%2B6@14.2.0-19?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libtinfo6",
+      "SPDXID": "SPDXRef-Package-9e3acb9bd967a963b2b0956a83e4879d",
+      "versionInfo": "6.5+20250216-2",
+      "supplier": "Person: Ncurses Maintainers <ncurses@packages.debian.org>",
+      "originator": "Person: Ncurses Maintainers <ncurses@packages.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "0f563c7fb16f9a94862a720022120867536e275e"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause OR X11",
+      "description": "shared low-level terminfo library for terminal handling\n The ncurses library routines are a terminal-independent method of\n updating character screens with reasonable optimization.\n .\n This package contains the shared low-level terminfo library.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libtinfo6@6.5%2B20250216-2?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libuuid1",
+      "SPDXID": "SPDXRef-Package-56644af365cb2702904c1426efb165de",
+      "versionInfo": "2.41-5",
+      "supplier": "Person: Chris Hofstaedtler <zeha@debian.org>",
+      "originator": "Person: Chris Hofstaedtler <zeha@debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "46ee269653530994d3e1e02d3220b2e730367e06"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-2-Clause OR BSD-3-Clause OR BSD-4-Clause OR GPL-2.0-only OR GPL-2.0-or-later OR GPL-3.0-only OR GPL-3.0-or-later OR ISC OR LGPL-2.0-only OR LGPL-2.0-or-later OR LGPL-2.1-only OR LGPL-2.1-or-later OR LGPL-3.0-only OR LGPL-3.0-or-later",
+      "description": "Universally Unique ID library\n The libuuid library generates and parses 128-bit Universally Unique\n IDs (UUIDs). A UUID is an identifier that is unique within the space\n of all such identifiers across both space and time. It can be used for\n multiple purposes, from tagging objects with an extremely short lifetime\n to reliably identifying very persistent objects across a network.\n .\n See RFC 4122 for more information.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libuuid1@2.41-5?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libxcrypt",
+      "SPDXID": "SPDXRef-Package-cb4eefb88ee7e7cb40918d848299286f",
+      "versionInfo": "1:4.4.38-1",
+      "supplier": "Person: Marco d'Itri <md@linux.it>",
+      "originator": "Person: Marco d'Itri <md@linux.it>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "0509ead1a0678f08c99d70316b529d41042683c8"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "description": "libcrypt shared library\n libxcrypt is a modern library for one-way hashing of passwords.\n It supports DES, MD5, NTHASH, SUNMD5, SHA-2-256, SHA-2-512, and\n bcrypt-based password hashes\n It provides the traditional Unix 'crypt' and 'crypt_r' interfaces,\n as well as a set of extended interfaces like 'crypt_gensalt'.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libxcrypt@1%3A4.4.38-1?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libzstd1",
+      "SPDXID": "SPDXRef-Package-e56f5a900043acad2268b5e7258ef4fc",
+      "versionInfo": "1.5.7+dfsg-1",
+      "supplier": "Person: RPM packaging team <team+pkg-rpm@tracker.debian.org>",
+      "originator": "Person: RPM packaging team <team+pkg-rpm@tracker.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "32269d130f8a6dd139b4e94d946f49c98d6b0bc6"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause OR GPL-2.0-only OR Zlib",
+      "description": "fast lossless compression algorithm\n Zstd, short for Zstandard, is a fast lossless compression algorithm, targeting\n real-time compression scenarios at zlib-level compression ratio.\n .\n This package contains the shared library.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libzstd1@1.5.7%2Bdfsg-1?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libzstd",
+      "SPDXID": "SPDXRef-Package-98a1a0dc5f1ccffceedb4e80f6538d39",
+      "versionInfo": "1.5.7+dfsg-1",
+      "supplier": "Person: RPM packaging team <team+pkg-rpm@tracker.debian.org>",
+      "originator": "Person: RPM packaging team <team+pkg-rpm@tracker.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "32269d130f8a6dd139b4e94d946f49c98d6b0bc6"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause OR GPL-2.0-only OR Zlib",
+      "description": "fast lossless compression algorithm\n Zstd, short for Zstandard, is a fast lossless compression algorithm, targeting\n real-time compression scenarios at zlib-level compression ratio.\n .\n This package contains the shared library.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/libzstd@1.5.7%2Bdfsg-1?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "ncurses-base",
+      "SPDXID": "SPDXRef-Package-d7e0be9a80ac513a19c68bfa4cfab6da",
+      "versionInfo": "6.5+20250216-2",
+      "supplier": "Person: Ncurses Maintainers <ncurses@packages.debian.org>",
+      "originator": "Person: Ncurses Maintainers <ncurses@packages.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "5d1e3c6b45bd96e44af4c1615c20a48b69ce3e10"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause OR X11",
+      "description": "basic terminal type definitions\n The ncurses library routines are a terminal-independent method of\n updating character screens with reasonable optimization.\n .\n This package contains terminfo data files to support the most common types of\n terminal, including ansi, dumb, linux, rxvt, screen, sun, vt100, vt102, vt220,\n vt52, and xterm.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/ncurses-base@6.5%2B20250216-2?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "ncurses-bin",
+      "SPDXID": "SPDXRef-Package-f10dd27e0a7c860d3d51a2bab554c575",
+      "versionInfo": "6.5+20250216-2",
+      "supplier": "Person: Ncurses Maintainers <ncurses@packages.debian.org>",
+      "originator": "Person: Ncurses Maintainers <ncurses@packages.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "6a67dbd04e62bf18dba384cd0f14bb4b61f7f39b"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause OR X11",
+      "description": "terminal-related programs and man pages\n The ncurses library routines are a terminal-independent method of\n updating character screens with reasonable optimization.\n .\n This package contains the programs used for manipulating the terminfo\n database and individual terminfo entries, as well as some programs for\n resetting terminals and such.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/ncurses-bin@6.5%2B20250216-2?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "ncurses",
+      "SPDXID": "SPDXRef-Package-94e1206f70525f46db46e865c625226a",
+      "versionInfo": "6.5+20250216-2",
+      "supplier": "Person: Ncurses Maintainers <ncurses@packages.debian.org>",
+      "originator": "Person: Ncurses Maintainers <ncurses@packages.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "75cdf1d9a1996496ff8fc1bda14bf7d7884bbe49"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause OR X11",
+      "description": "shared libraries for terminal handling (wide character support)\n The ncurses library routines are a terminal-independent method of\n updating character screens with reasonable optimization.\n .\n This package contains the shared libraries necessary to run programs\n compiled with ncursesw, which includes support for wide characters.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/ncurses@6.5%2B20250216-2?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "netbase",
+      "SPDXID": "SPDXRef-Package-cd14592debfcfd5466962482d3c648bf",
+      "versionInfo": "6.5",
+      "supplier": "Person: Marco d'Itri <md@linux.it>",
+      "originator": "Person: Marco d'Itri <md@linux.it>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "d8b0cb409dbc6d3bb3fa8eb976555455ca738e80"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-only",
+      "description": "Basic TCP/IP networking system\n This package provides the necessary infrastructure for basic TCP/IP based\n networking.\n .\n In particular, it supplies common name-to-number mappings in /etc/services,\n /etc/rpc, /etc/protocols and /etc/ethertypes.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/netbase@6.5?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "openssl-provider-legacy",
+      "SPDXID": "SPDXRef-Package-05ddc2e1815a825c594767d32c772e37",
+      "versionInfo": "3.5.5-1~deb13u2",
+      "supplier": "Person: Debian OpenSSL Team <pkg-openssl-devel@alioth-lists.debian.net>",
+      "originator": "Person: Debian OpenSSL Team <pkg-openssl-devel@alioth-lists.debian.net>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "c2105b769c2cf3a397bfb0d8cf26a12d105925a0"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0 OR GPL-1.0-only OR GPL-1.0-or-later",
+      "description": "Secure Sockets Layer toolkit - cryptographic utility\n This package is part of the OpenSSL project's implementation of the SSL\n and TLS cryptographic protocols for secure communication over the\n Internet.\n .\n This package contains the legacy provider. The OpenSSL legacy provider\n supplies OpenSSL implementations of algorithms that have been deemed legacy.\n Such algorithms have commonly fallen out of use, have been deemed insecure by\n the cryptography community, or something similar.\n For details see OSSL_PROVIDER-legacy man page.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/openssl-provider-legacy@3.5.5-1~deb13u2?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "openssl",
+      "SPDXID": "SPDXRef-Package-7a951f60f30b7b471fdd6b15a5b0f2b6",
+      "versionInfo": "3.5.5-1~deb13u2",
+      "supplier": "Person: Debian OpenSSL Team <pkg-openssl-devel@alioth-lists.debian.net>",
+      "originator": "Person: Debian OpenSSL Team <pkg-openssl-devel@alioth-lists.debian.net>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "5fa3e990becd2e51b5b1c7428a58547a738111ae"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0 OR GPL-1.0-only OR GPL-1.0-or-later",
+      "description": "Secure Sockets Layer toolkit - shared libraries\n This package is part of the OpenSSL project's implementation of the SSL\n and TLS cryptographic protocols for secure communication over the\n Internet.\n .\n It provides the libssl and libcrypto shared libraries.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/openssl@3.5.5-1~deb13u2?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "readline-common",
+      "SPDXID": "SPDXRef-Package-f5cc69ee4bd01356845109ecbddb0588",
+      "versionInfo": "8.2-6",
+      "supplier": "Person: Matthias Klose <doko@debian.org>",
+      "originator": "Person: Matthias Klose <doko@debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "caa9dc3ced3fadf1773b1a13ce5839ad706b9316"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-only OR GPL-2.0-or-later OR GPL-3.0-only OR GPL-3.0-or-later",
+      "description": "GNU readline and history libraries, common files\n The GNU readline library aids in the consistency of user interface\n across discrete programs that need to provide a command line\n interface.\n .\n The GNU history library provides a consistent user interface for\n recalling lines of previously typed input.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/readline-common@8.2-6?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "readline",
+      "SPDXID": "SPDXRef-Package-7aa2e0bfbc34096e1320068ecdc27679",
+      "versionInfo": "8.2-6",
+      "supplier": "Person: Matthias Klose <doko@debian.org>",
+      "originator": "Person: Matthias Klose <doko@debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "0653dc1618a1a0b001f9578bc84445b7598c1ce7"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-only OR GPL-2.0-or-later OR GPL-3.0-only OR GPL-3.0-or-later",
+      "description": "GNU readline and history libraries, run-time libraries\n The GNU readline library aids in the consistency of user interface\n across discrete programs that need to provide a command line\n interface.\n .\n The GNU history library provides a consistent user interface for\n recalling lines of previously typed input.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/readline@8.2-6?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "sqlite3",
+      "SPDXID": "SPDXRef-Package-b2c2173c36b275dd4701ed9889325b6d",
+      "versionInfo": "3.46.1-7+deb13u1",
+      "supplier": "Person: Laszlo Boszormenyi (GCS) <gcs@debian.org>",
+      "originator": "Person: Laszlo Boszormenyi (GCS) <gcs@debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "be2160bb389d7856f8ff3d4f89c6b58ffb38dcbe"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-only OR GPL-2.0-or-later",
+      "description": "SQLite 3 shared library\n SQLite is a C library that implements an SQL database engine.\n Programs that link with the SQLite library can have SQL database\n access without running a separate RDBMS process.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/sqlite3@3.46.1-7%2Bdeb13u1?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "tzdata",
+      "SPDXID": "SPDXRef-Package-b8a51e976ead8c71868bbf9b3a47b3ba",
+      "versionInfo": "2026a-0+deb13u1",
+      "supplier": "Person: GNU Libc Maintainers <debian-glibc@lists.debian.org>",
+      "originator": "Person: GNU Libc Maintainers <debian-glibc@lists.debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "c39e5cdd9a46d26da5df781a0bf54953c59db0de"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "description": "time zone and daylight-saving time data\n This package contains data required for the implementation of\n standard local time for many representative locations around the\n globe. It is updated periodically to reflect changes made by\n political bodies to time zone boundaries, UTC offsets, and\n daylight-saving rules.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/tzdata@2026a-0%2Bdeb13u1?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "util-linux",
+      "SPDXID": "SPDXRef-Package-d4e1cfd78cac5756637edc77891b92db",
+      "versionInfo": "2.41-5",
+      "supplier": "Person: Chris Hofstaedtler <zeha@debian.org>",
+      "originator": "Person: Chris Hofstaedtler <zeha@debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "46ee269653530994d3e1e02d3220b2e730367e06"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-2-Clause OR BSD-3-Clause OR BSD-4-Clause OR GPL-2.0-only OR GPL-2.0-or-later OR GPL-3.0-only OR GPL-3.0-or-later OR ISC OR LGPL-2.0-only OR LGPL-2.0-or-later OR LGPL-2.1-only OR LGPL-2.1-or-later OR LGPL-3.0-only OR LGPL-3.0-or-later",
+      "description": "Universally Unique ID library\n The libuuid library generates and parses 128-bit Universally Unique\n IDs (UUIDs). A UUID is an identifier that is unique within the space\n of all such identifiers across both space and time. It can be used for\n multiple purposes, from tagging objects with an extremely short lifetime\n to reliably identifying very persistent objects across a network.\n .\n See RFC 4122 for more information.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/util-linux@2.41-5?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "xz-utils",
+      "SPDXID": "SPDXRef-Package-6fe9116dcec0977843a00c19b1c5f23b",
+      "versionInfo": "5.8.1-1",
+      "supplier": "Person: Sebastian Andrzej Siewior <sebastian@breakpoint.cc>",
+      "originator": "Person: Sebastian Andrzej Siewior <sebastian@breakpoint.cc>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "c63a05e7a72cd682c8b6324f2f33b81381b62cca"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "0BSD OR FSFUL OR FSFULLR OR GPL-2.0-only OR GPL-2.0-or-later OR GPL-3.0-only OR LGPL-2.1-only OR LGPL-2.1-or-later",
+      "description": "XZ-format compression library\n XZ is the successor to the Lempel-Ziv/Markov-chain Algorithm\n compression format, which provides memory-hungry but powerful\n compression (often better than bzip2) and fast, easy decompression.\n .\n The native format of liblzma is XZ; it also supports raw (headerless)\n streams and the older LZMA format used by lzma. (For 7-Zip's related\n format, use the p7zip package instead.)",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/xz-utils@5.8.1-1?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "zlib1g",
+      "SPDXID": "SPDXRef-Package-cf112f620a801e8e350730dfde3c4a7b",
+      "versionInfo": "1:1.3.dfsg+really1.3.1-1+b1",
+      "supplier": "Person: Mark Brown <broonie@debian.org>",
+      "originator": "Person: Mark Brown <broonie@debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "27160a756a5a2df102b0d20bd0c572c6d8ab6e48"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Zlib",
+      "description": "compression library - runtime\n zlib is a library implementing the deflate compression method found\n in gzip and PKZIP.  This package includes the shared library.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/zlib1g@1%3A1.3.dfsg%2Breally1.3.1-1%2Bb1?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "zlib",
+      "SPDXID": "SPDXRef-Package-2ba1d3a7661da39ebdc1eab62057f403",
+      "versionInfo": "1:1.3.dfsg+really1.3.1-1",
+      "supplier": "Person: Mark Brown <broonie@debian.org>",
+      "originator": "Person: Mark Brown <broonie@debian.org>",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "27160a756a5a2df102b0d20bd0c572c6d8ab6e48"
+      },
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Zlib",
+      "description": "compression library - runtime\n zlib is a library implementing the deflate compression method found\n in gzip and PKZIP.  This package includes the shared library.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/zlib@1%3A1.3.dfsg%2Breally1.3.1-1?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "python",
+      "SPDXID": "SPDXRef-Package-b4419732eb7c722a071e62e100603786",
+      "versionInfo": "3.13.13",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "PSF-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:dhi/python@3.13.13"
+        }
+      ]
+    },
+    {
+      "name": "pkg-python",
+      "SPDXID": "SPDXRef-Package-2b92ed68502261366a18f5495f50d649",
+      "versionInfo": "3.13.13-debian13",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:docker/dhi/pkg-python@3.13.13-debian13?os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "python",
+      "SPDXID": "SPDXRef-Package-1499a423b6acace650f80aed8dfbf8a9",
+      "versionInfo": "3.13.13-debian13",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:docker/dhi/python@3.13.13-debian13?os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "python",
+      "SPDXID": "SPDXRef-Package-2334b4842904d66e300d60b7c9563524",
+      "versionInfo": "3.13.13",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:generic/python@3.13.13"
+        }
+      ]
+    },
+    {
+      "name": "annotated-doc",
+      "SPDXID": "SPDXRef-Package-add2afb83a113e3ce773973a359d6f92",
+      "versionInfo": "0.0.4",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/annotated-doc@0.0.4"
+        }
+      ]
+    },
+    {
+      "name": "annotated-types",
+      "SPDXID": "SPDXRef-Package-07d4dc367635faf53a7811cc52b8fab7",
+      "versionInfo": "0.7.0",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/annotated-types@0.7.0"
+        }
+      ]
+    },
+    {
+      "name": "anthropic",
+      "SPDXID": "SPDXRef-Package-ad67babaf9fafbde959fbee9dfb06682",
+      "versionInfo": "0.95.0",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/anthropic@0.95.0"
+        }
+      ]
+    },
+    {
+      "name": "anyio",
+      "SPDXID": "SPDXRef-Package-f7e43d706b3e58000d9e39ee4ad611aa",
+      "versionInfo": "4.13.0",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/anyio@4.13.0"
+        }
+      ]
+    },
+    {
+      "name": "certifi",
+      "SPDXID": "SPDXRef-Package-b6814eb4a7233e13fc3d9d6ab5e1e69c",
+      "versionInfo": "2026.2.25",
+      "supplier": "Person: Kenneth Reitz",
+      "originator": "Person: Kenneth Reitz",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MPL-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/certifi@2026.2.25"
+        }
+      ]
+    },
+    {
+      "name": "click",
+      "SPDXID": "SPDXRef-Package-4cfa07339d773dbb828bdee9f3e70809",
+      "versionInfo": "8.3.2",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/click@8.3.2"
+        }
+      ]
+    },
+    {
+      "name": "distro",
+      "SPDXID": "SPDXRef-Package-0988e4eefeede4115687955491d975af",
+      "versionInfo": "1.9.0",
+      "supplier": "Person: Nir Cohen",
+      "originator": "Person: Nir Cohen",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/distro@1.9.0"
+        }
+      ]
+    },
+    {
+      "name": "docstring-parser",
+      "SPDXID": "SPDXRef-Package-52b85408420e17015828e90989fb4157",
+      "versionInfo": "0.18.0",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/docstring-parser@0.18.0"
+        }
+      ]
+    },
+    {
+      "name": "fastapi",
+      "SPDXID": "SPDXRef-Package-60cd127b4a8a960c1fd77d03dfed6d16",
+      "versionInfo": "0.135.3",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/fastapi@0.135.3"
+        }
+      ]
+    },
+    {
+      "name": "greenlet",
+      "SPDXID": "SPDXRef-Package-9e2897abcb3d777439c7a3fba979efbd",
+      "versionInfo": "3.4.0",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT OR PSF-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/greenlet@3.4.0"
+        }
+      ]
+    },
+    {
+      "name": "h11",
+      "SPDXID": "SPDXRef-Package-391c219ed2c134d5525e3a25879b1f69",
+      "versionInfo": "0.16.0",
+      "supplier": "Person: Nathaniel J. Smith",
+      "originator": "Person: Nathaniel J. Smith",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/h11@0.16.0"
+        }
+      ]
+    },
+    {
+      "name": "httpcore",
+      "SPDXID": "SPDXRef-Package-53e7aae9f6ffa6a408ab4dcc3ecae532",
+      "versionInfo": "1.0.9",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/httpcore@1.0.9"
+        }
+      ]
+    },
+    {
+      "name": "httptools",
+      "SPDXID": "SPDXRef-Package-602d775dcb54b797a220cfbeba6bc035",
+      "versionInfo": "0.7.1",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/httptools@0.7.1"
+        }
+      ]
+    },
+    {
+      "name": "httpx",
+      "SPDXID": "SPDXRef-Package-68592761cb097ba599d8a88a359cd11b",
+      "versionInfo": "0.28.1",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/httpx@0.28.1"
+        }
+      ]
+    },
+    {
+      "name": "idna",
+      "SPDXID": "SPDXRef-Package-604ce864f1f6e8956d47b834e18d8f3c",
+      "versionInfo": "3.11",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/idna@3.11"
+        }
+      ]
+    },
+    {
+      "name": "jinja2",
+      "SPDXID": "SPDXRef-Package-0d542fd11b88104b47de3ce7584eb3e3",
+      "versionInfo": "3.1.6",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/jinja2@3.1.6"
+        }
+      ]
+    },
+    {
+      "name": "jiter",
+      "SPDXID": "SPDXRef-Package-9015e64e5961ba58332667a14ba1043d",
+      "versionInfo": "0.14.0",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/jiter@0.14.0"
+        }
+      ]
+    },
+    {
+      "name": "markupsafe",
+      "SPDXID": "SPDXRef-Package-a492a2d2608c5f2e798c53959326f360",
+      "versionInfo": "3.0.3",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/markupsafe@3.0.3"
+        }
+      ]
+    },
+    {
+      "name": "pip",
+      "SPDXID": "SPDXRef-Package-bd356e71f369d08e1959547ad863f36f",
+      "versionInfo": "26.0.1",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pip@26.0.1"
+        }
+      ]
+    },
+    {
+      "name": "psycopg-binary",
+      "SPDXID": "SPDXRef-Package-84614a065bb5e10f4bae8003dca8031f",
+      "versionInfo": "3.3.3",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "LGPL-3.0-only",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/psycopg-binary@3.3.3"
+        }
+      ]
+    },
+    {
+      "name": "psycopg",
+      "SPDXID": "SPDXRef-Package-b29b681f5512e791899deee36de0dc29",
+      "versionInfo": "3.3.3",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "LGPL-3.0-only",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/psycopg@3.3.3"
+        }
+      ]
+    },
+    {
+      "name": "pydantic-core",
+      "SPDXID": "SPDXRef-Package-87c9c6551e35788f4a6d7ac660ebb98f",
+      "versionInfo": "2.46.0",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pydantic-core@2.46.0"
+        }
+      ]
+    },
+    {
+      "name": "pydantic-settings",
+      "SPDXID": "SPDXRef-Package-256633dac70bbf32d4e201385d95862c",
+      "versionInfo": "2.13.1",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pydantic-settings@2.13.1"
+        }
+      ]
+    },
+    {
+      "name": "pydantic",
+      "SPDXID": "SPDXRef-Package-3e65682c5d1c0c171154431a12a32bb2",
+      "versionInfo": "2.13.0",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pydantic@2.13.0"
+        }
+      ]
+    },
+    {
+      "name": "python-dotenv",
+      "SPDXID": "SPDXRef-Package-c91b747d524da2adcf2c59efea0bdaa1",
+      "versionInfo": "1.2.2",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/python-dotenv@1.2.2"
+        }
+      ]
+    },
+    {
+      "name": "python-multipart",
+      "SPDXID": "SPDXRef-Package-50a8e926ed032aac3e40f0d85af3b6bf",
+      "versionInfo": "0.0.26",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/python-multipart@0.0.26"
+        }
+      ]
+    },
+    {
+      "name": "pyyaml",
+      "SPDXID": "SPDXRef-Package-75493e85e4e44ddc4e0802fa4dd104e3",
+      "versionInfo": "6.0.3",
+      "supplier": "Person: Kirill Simonov",
+      "originator": "Person: Kirill Simonov",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pyyaml@6.0.3"
+        }
+      ]
+    },
+    {
+      "name": "sniffio",
+      "SPDXID": "SPDXRef-Package-40d430dbab5fe330116abb7fab931ec1",
+      "versionInfo": "1.3.1",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0 OR MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/sniffio@1.3.1"
+        }
+      ]
+    },
+    {
+      "name": "sqlalchemy",
+      "SPDXID": "SPDXRef-Package-5c91651cfbe344dd7e95f72bbc5d4020",
+      "versionInfo": "2.0.49",
+      "supplier": "Person: Mike Bayer",
+      "originator": "Person: Mike Bayer",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/sqlalchemy@2.0.49"
+        }
+      ]
+    },
+    {
+      "name": "starlette",
+      "SPDXID": "SPDXRef-Package-27e63fc34fddd15b8da0505feb711e94",
+      "versionInfo": "1.0.0",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/starlette@1.0.0"
+        }
+      ]
+    },
+    {
+      "name": "typing-extensions",
+      "SPDXID": "SPDXRef-Package-2141d6d25a0fa345ff502e4ef11639a8",
+      "versionInfo": "4.15.0",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "PSF-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/typing-extensions@4.15.0"
+        }
+      ]
+    },
+    {
+      "name": "typing-inspection",
+      "SPDXID": "SPDXRef-Package-6b4b923e9a008347448ab30e3b1946b5",
+      "versionInfo": "0.4.2",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/typing-inspection@0.4.2"
+        }
+      ]
+    },
+    {
+      "name": "uvicorn",
+      "SPDXID": "SPDXRef-Package-db11823e6b5285c364c21ea94100df82",
+      "versionInfo": "0.44.0",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/uvicorn@0.44.0"
+        }
+      ]
+    },
+    {
+      "name": "uvloop",
+      "SPDXID": "SPDXRef-Package-ff47bc43d0cfec0cb7bd65e128e4788d",
+      "versionInfo": "0.22.1",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/uvloop@0.22.1"
+        }
+      ]
+    },
+    {
+      "name": "watchfiles",
+      "SPDXID": "SPDXRef-Package-77c96e44610b62101d170f55315ce1bb",
+      "versionInfo": "1.1.1",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/watchfiles@1.1.1"
+        }
+      ]
+    },
+    {
+      "name": "websockets",
+      "SPDXID": "SPDXRef-Package-41d6596b72bf4420d51dadad2e00c83c",
+      "versionInfo": "16.0",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/websockets@16.0"
+        }
+      ]
+    },
+    {
+      "name": "cyrus-sasl-lib",
+      "SPDXID": "SPDXRef-Package-a4cfb3f047520ebceb18e7a26e16bd12",
+      "versionInfo": "2.1.27-6.el8_5",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:rpm/almalinux/cyrus-sasl-lib@2.1.27-6.el8_5?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "keyutils-libs",
+      "SPDXID": "SPDXRef-Package-90c71c5708b2baaa6960d4255c314f42",
+      "versionInfo": "1.5.10-9.el8",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:rpm/almalinux/keyutils-libs@1.5.10-9.el8?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "krb5-libs",
+      "SPDXID": "SPDXRef-Package-f011b6f3926afdb8033a5c38ba69247f",
+      "versionInfo": "1.18.2-32.el8_10",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:rpm/almalinux/krb5-libs@1.18.2-32.el8_10?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libcom_err",
+      "SPDXID": "SPDXRef-Package-9192b6f786c4daaa4020e021a572146c",
+      "versionInfo": "1.45.6-7.el8_10",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:rpm/almalinux/libcom_err@1.45.6-7.el8_10?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libselinux",
+      "SPDXID": "SPDXRef-Package-a46f6c6e5587d1c52886d305b95deb02",
+      "versionInfo": "2.9-10.el8_10",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:rpm/almalinux/libselinux@2.9-10.el8_10?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "libxcrypt",
+      "SPDXID": "SPDXRef-Package-e745a6a84ddaa84b4db118a88297b23e",
+      "versionInfo": "4.1.1-6.el8",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:rpm/almalinux/libxcrypt@4.1.1-6.el8?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "openssl-libs",
+      "SPDXID": "SPDXRef-Package-4c6ccc98c76551e98a68ffc377691a27",
+      "versionInfo": "1.1.1k-14.el8_6",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:rpm/almalinux/openssl-libs@1.1.1k-14.el8_6?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    },
+    {
+      "name": "pcre2",
+      "SPDXID": "SPDXRef-Package-023db9045e99003c2a8402060e07c571",
+      "versionInfo": "10.32-3.el8_6",
+      "supplier": "NOASSERTION",
+      "originator": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:rpm/almalinux/pcre2@10.32-3.el8_6?os_distro=trixie&os_name=debian&os_version=13"
+        }
+      ]
+    }
+  ],
+  "files": [],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-DocumentRoot",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-f7f688f0ad52acae46bf3241a4425fb8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-c9fbb1e6159fd2f3708cd103cda4f593",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-e74252795d7e73ea88f0c17bec3531e3",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-2bb6caac75a6f4cabfc0d78016a8ebe1",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-5e0124d66015307aa6f05eb1be5f5ea9",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-812b74ca4a1b79584b3558ea3f92ded8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-26ab7fa49a859230998e229455240cb5",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-7f7e7b711aaaa224d1ab3f6e22951c64",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-68ed8966865bee340e50e3cffefe9c38",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-d71fcd6c8105140a776255c3d6a91e66",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-37c5d908ac1f02b5bd07591a6d352d35",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-494c4af928eeacece08f4c3b32d18695",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-8341623ee4bae47746631f18ceda8c57",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-ae19ac1d15bda68c4aa5e90461209251",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-468d9f9f055a951e0a6695b99450f166",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-d6b2335fd91c0556d1f07350a7c062c2",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-7757e41348fbb4eb165d971e24aefb74",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-48ba69ad745be2c92c48b2486359ec99",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-0d22b34f88d505664fd6421511201263",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-d3844c290584d158fda1b93bfad5ca6f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-1c147f8b550f2121cff5de2da8b2166a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-b07bf35e19d30d52d160ced0ba5e7297",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-2125d51c5fcf478bebdd94c527da6934",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-5bb59cc08e09d2d13581a4d6a603a8dd",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-9e3acb9bd967a963b2b0956a83e4879d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-56644af365cb2702904c1426efb165de",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-cb4eefb88ee7e7cb40918d848299286f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-e56f5a900043acad2268b5e7258ef4fc",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-98a1a0dc5f1ccffceedb4e80f6538d39",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-d7e0be9a80ac513a19c68bfa4cfab6da",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-f10dd27e0a7c860d3d51a2bab554c575",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-94e1206f70525f46db46e865c625226a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-cd14592debfcfd5466962482d3c648bf",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-05ddc2e1815a825c594767d32c772e37",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-7a951f60f30b7b471fdd6b15a5b0f2b6",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-f5cc69ee4bd01356845109ecbddb0588",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-7aa2e0bfbc34096e1320068ecdc27679",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-b2c2173c36b275dd4701ed9889325b6d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-b8a51e976ead8c71868bbf9b3a47b3ba",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-d4e1cfd78cac5756637edc77891b92db",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-6fe9116dcec0977843a00c19b1c5f23b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-cf112f620a801e8e350730dfde3c4a7b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-2ba1d3a7661da39ebdc1eab62057f403",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-b4419732eb7c722a071e62e100603786",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-2b92ed68502261366a18f5495f50d649",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-1499a423b6acace650f80aed8dfbf8a9",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-2334b4842904d66e300d60b7c9563524",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-add2afb83a113e3ce773973a359d6f92",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-07d4dc367635faf53a7811cc52b8fab7",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-ad67babaf9fafbde959fbee9dfb06682",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-f7e43d706b3e58000d9e39ee4ad611aa",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-b6814eb4a7233e13fc3d9d6ab5e1e69c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-4cfa07339d773dbb828bdee9f3e70809",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-0988e4eefeede4115687955491d975af",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-52b85408420e17015828e90989fb4157",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-60cd127b4a8a960c1fd77d03dfed6d16",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-9e2897abcb3d777439c7a3fba979efbd",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-391c219ed2c134d5525e3a25879b1f69",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-53e7aae9f6ffa6a408ab4dcc3ecae532",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-602d775dcb54b797a220cfbeba6bc035",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-68592761cb097ba599d8a88a359cd11b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-604ce864f1f6e8956d47b834e18d8f3c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-0d542fd11b88104b47de3ce7584eb3e3",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-9015e64e5961ba58332667a14ba1043d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-a492a2d2608c5f2e798c53959326f360",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-bd356e71f369d08e1959547ad863f36f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-84614a065bb5e10f4bae8003dca8031f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-b29b681f5512e791899deee36de0dc29",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-87c9c6551e35788f4a6d7ac660ebb98f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-256633dac70bbf32d4e201385d95862c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-3e65682c5d1c0c171154431a12a32bb2",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-c91b747d524da2adcf2c59efea0bdaa1",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-50a8e926ed032aac3e40f0d85af3b6bf",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-75493e85e4e44ddc4e0802fa4dd104e3",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-40d430dbab5fe330116abb7fab931ec1",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-5c91651cfbe344dd7e95f72bbc5d4020",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-27e63fc34fddd15b8da0505feb711e94",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-2141d6d25a0fa345ff502e4ef11639a8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-6b4b923e9a008347448ab30e3b1946b5",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-db11823e6b5285c364c21ea94100df82",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-ff47bc43d0cfec0cb7bd65e128e4788d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-77c96e44610b62101d170f55315ce1bb",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-41d6596b72bf4420d51dadad2e00c83c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-a4cfb3f047520ebceb18e7a26e16bd12",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-90c71c5708b2baaa6960d4255c314f42",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-f011b6f3926afdb8033a5c38ba69247f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-9192b6f786c4daaa4020e021a572146c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-a46f6c6e5587d1c52886d305b95deb02",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-e745a6a84ddaa84b4db118a88297b23e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-4c6ccc98c76551e98a68ffc377691a27",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot",
+      "relatedSpdxElement": "SPDXRef-Package-023db9045e99003c2a8402060e07c571",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-26ab7fa49a859230998e229455240cb5",
+      "relatedSpdxElement": "SPDXRef-Package-7f7e7b711aaaa224d1ab3f6e22951c64",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-37c5d908ac1f02b5bd07591a6d352d35",
+      "relatedSpdxElement": "SPDXRef-Package-c9fbb1e6159fd2f3708cd103cda4f593",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-494c4af928eeacece08f4c3b32d18695",
+      "relatedSpdxElement": "SPDXRef-Package-68ed8966865bee340e50e3cffefe9c38",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-8341623ee4bae47746631f18ceda8c57",
+      "relatedSpdxElement": "SPDXRef-Package-cb4eefb88ee7e7cb40918d848299286f",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-ae19ac1d15bda68c4aa5e90461209251",
+      "relatedSpdxElement": "SPDXRef-Package-2bb6caac75a6f4cabfc0d78016a8ebe1",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-468d9f9f055a951e0a6695b99450f166",
+      "relatedSpdxElement": "SPDXRef-Package-d6b2335fd91c0556d1f07350a7c062c2",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-7757e41348fbb4eb165d971e24aefb74",
+      "relatedSpdxElement": "SPDXRef-Package-7f7e7b711aaaa224d1ab3f6e22951c64",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-48ba69ad745be2c92c48b2486359ec99",
+      "relatedSpdxElement": "SPDXRef-Package-d71fcd6c8105140a776255c3d6a91e66",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-0d22b34f88d505664fd6421511201263",
+      "relatedSpdxElement": "SPDXRef-Package-6fe9116dcec0977843a00c19b1c5f23b",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-d3844c290584d158fda1b93bfad5ca6f",
+      "relatedSpdxElement": "SPDXRef-Package-94e1206f70525f46db46e865c625226a",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-1c147f8b550f2121cff5de2da8b2166a",
+      "relatedSpdxElement": "SPDXRef-Package-7aa2e0bfbc34096e1320068ecdc27679",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-b07bf35e19d30d52d160ced0ba5e7297",
+      "relatedSpdxElement": "SPDXRef-Package-b2c2173c36b275dd4701ed9889325b6d",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-2125d51c5fcf478bebdd94c527da6934",
+      "relatedSpdxElement": "SPDXRef-Package-7a951f60f30b7b471fdd6b15a5b0f2b6",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-5bb59cc08e09d2d13581a4d6a603a8dd",
+      "relatedSpdxElement": "SPDXRef-Package-7f7e7b711aaaa224d1ab3f6e22951c64",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-9e3acb9bd967a963b2b0956a83e4879d",
+      "relatedSpdxElement": "SPDXRef-Package-94e1206f70525f46db46e865c625226a",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-56644af365cb2702904c1426efb165de",
+      "relatedSpdxElement": "SPDXRef-Package-d4e1cfd78cac5756637edc77891b92db",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-e56f5a900043acad2268b5e7258ef4fc",
+      "relatedSpdxElement": "SPDXRef-Package-98a1a0dc5f1ccffceedb4e80f6538d39",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-d7e0be9a80ac513a19c68bfa4cfab6da",
+      "relatedSpdxElement": "SPDXRef-Package-94e1206f70525f46db46e865c625226a",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-f10dd27e0a7c860d3d51a2bab554c575",
+      "relatedSpdxElement": "SPDXRef-Package-94e1206f70525f46db46e865c625226a",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-05ddc2e1815a825c594767d32c772e37",
+      "relatedSpdxElement": "SPDXRef-Package-7a951f60f30b7b471fdd6b15a5b0f2b6",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-f5cc69ee4bd01356845109ecbddb0588",
+      "relatedSpdxElement": "SPDXRef-Package-7aa2e0bfbc34096e1320068ecdc27679",
+      "relationshipType": "GENERATED_FROM"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-cf112f620a801e8e350730dfde3c4a7b",
+      "relatedSpdxElement": "SPDXRef-Package-2ba1d3a7661da39ebdc1eab62057f403",
+      "relationshipType": "GENERATED_FROM"
+    }
+  ]
+}

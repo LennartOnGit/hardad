@@ -120,8 +120,34 @@ function ScLayers({ items }) {
   );
 }
 
-function Callout({ text }) {
+function Callout({ text, html }) {
+  if (html) return <div className="callout" dangerouslySetInnerHTML={{ __html: html }} />;
   return <div className="callout">{text}</div>;
+}
+
+function Image({ src, alt, caption, maxWidth }) {
+  const style = maxWidth ? { maxWidth } : undefined;
+  return (
+    <figure className="pres-image" style={style}>
+      <img src={_rootPath + "/static/" + src} alt={alt || ""} loading="lazy" />
+      {caption && <figcaption>{caption}</figcaption>}
+    </figure>
+  );
+}
+
+function SbomCompare({ items }) {
+  return (
+    <div className="sbom-compare">
+      {(items || []).map((it, i) => (
+        <div key={i} className={"sbom-frame" + (it.variant ? " " + it.variant : "")}>
+          <div className="sbom-label">{it.label}</div>
+          <div className="sbom-viewport">
+            <img src={_rootPath + "/static/" + it.src} alt={it.label} loading="lazy" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 function Block({ block }) {
@@ -136,6 +162,8 @@ function Block({ block }) {
     case "arch":      return <Arch    {...block} />;
     case "sc-layers": return <ScLayers {...block} />;
     case "callout":   return <Callout {...block} />;
+    case "image":     return <Image   {...block} />;
+    case "sbom-compare": return <SbomCompare {...block} />;
     default:
       return <div style={{color:"var(--err)"}}>Unknown block type: {block.type}</div>;
   }

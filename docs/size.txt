@@ -1,0 +1,2 @@
+baseline: 426MB
+hardened: 222MB

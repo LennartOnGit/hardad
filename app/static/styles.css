@@ -644,6 +644,12 @@ body {
   line-height: 1.65;
 }
 .pres-body strong { color: var(--ink); font-weight: 600; }
+.pres-slide a {
+  color: var(--brand);
+  text-decoration-color: rgba(169, 163, 217, 0.4);
+  text-underline-offset: 2px;
+}
+.pres-slide a:hover { color: var(--ink); text-decoration-color: var(--brand); }
 
 .pres-grid {
   margin-top: 32px;
@@ -796,6 +802,77 @@ body {
   font-family: var(--font-mono);
   font-size: 11px;
   margin-top: 2px;
+}
+
+/* Image / screenshot block */
+.pres-image {
+  margin: 22px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pres-image img {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-soft);
+}
+.pres-image figcaption {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-mute);
+  letter-spacing: 0.03em;
+}
+
+/* SBOM comparison — two side-by-side scroll viewports for very tall mermaid SVGs.
+   Both viewports are the same height; the scrollbar thumb length is the visual
+   signal for relative bloat. */
+.sbom-compare {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.sbom-frame {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  background: var(--bg-panel);
+  overflow: hidden;
+}
+.sbom-frame.ok { border-color: rgba(61, 214, 140, 0.35); }
+.sbom-label {
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-dim);
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border-soft);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sbom-frame.ok .sbom-label { color: var(--ok); }
+.sbom-viewport {
+  height: 560px;
+  overflow: auto;
+  background: #ffffff;
+  padding: 6px;
+}
+.sbom-viewport img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 760px) {
+  .sbom-compare { grid-template-columns: 1fr; }
+  .sbom-viewport { height: 420px; }
 }
 
 /* ============ Feature annotation hotspots ============ */

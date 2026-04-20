@@ -8,6 +8,9 @@
 .gitignore
 .pytest_cache/
 .venv/
+__pycache__/
+*.pyc
+.DS_Store
 BRIEF.md
 compose.yaml
 Dockerfile
@@ -16,9 +19,8 @@ README.md
 tests/
 scripts/
 k8s/
+docs/
 run_baseline.sh
 run_hardened.sh
 run_pg.sh
 buildx_sign_attest.sh
-docs/
-Scripts/
