@@ -186,7 +186,7 @@
       "label": "09 Close",
       "blocks": [
         { "type": "eyebrow", "text": "What this proves" },
-        { "type": "title", "text": "I deploy platforms before applying for the role." },
+        { "type": "title", "text": "The full chain, end to end" },
         { "type": "lede", "html": "Walked an image from <code>python:3.13-slim</code> to a signed, attested, policy‑gated artifact: measured the baseline, swapped to a Docker Hardened base for <strong>−51%</strong> size and a fresher CVE surface, attached SBOM + SLSA provenance at build time, signed the digest with cosign keyless under GitHub OIDC, gated the push on Docker Scout, and deployed the signed digest to k3s on bare‑metal Proxmox. Every piece of evidence rides with the image and is verifiable without trusting the builder." },
         { "type": "body", "html": "What it shows: end‑to‑end ownership across container engineering, CI/CD, supply‑chain security, and platform operations" },
         { "type": "pills", "items": [
@@ -194,7 +194,7 @@
           { "text": "kubernetes operations",   "variant": "ok" },
           { "text": "supply‑chain security",   "variant": "ok" },
           { "text": "CI/CD",                   "variant": "ok" },
-          { "text": "edge networking",         "variant": "ok" },
+          { "text": "edge networking",         "variant": "ok" }
         ]},
         { "type": "body", "html": "<a href=\"#root\" onclick=\"event.preventDefault();window.scrollTo({top:0,behavior:'smooth'});\">↑ Scroll back up to try the tutor frontend.</a>" }
       ]
