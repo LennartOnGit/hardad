@@ -53,16 +53,30 @@ k3s on a bare-metal **Proxmox VE** cluster at home — 2 compute nodes + 1 quoru
 Helm chart in [`k8s/hardad/`](k8s/hardad/):
 - 2 replicas, `imagePullPolicy: Always` + rolling mutable `hardened` tag
 - Liveness / readiness probes on `/docker_demo/healthz`
-- values.yaml for non-secrets; Kubernetes Secret `hardad-secrets` for the rest
-- Bitnami PostgreSQL chart co-located in the `tutor` namespace
+- values.yaml for non-secrets; two Kubernetes Secrets (`hardad-secrets` for app, `postgres-auth` for DB) hold everything sensitive — neither is committed to git
+- Bitnami PostgreSQL chart co-located in the `tutor` namespace, with `auth.existingSecret: postgres-auth`
 
 ```bash
+# 1. PostgreSQL auth - Secret is consumed by the Bitnami chart via
+#    auth.existingSecret in k8s/postgres-values.yaml. The password is
+#    never written to the repo.
+PG_PW="$(python -c 'import secrets; print(secrets.token_urlsafe(32))')"
+PG_ADMIN_PW="$(python -c 'import secrets; print(secrets.token_urlsafe(32))')"
+kubectl create namespace tutor --dry-run=client -o yaml | kubectl apply -f -
+kubectl create secret generic postgres-auth -n tutor \
+  --from-literal=password="$PG_PW" \
+  --from-literal=postgres-password="$PG_ADMIN_PW"
+
+# 2. App secrets - consumed by the hardad Deployment via secretKeyRef.
 kubectl create secret generic hardad-secrets -n tutor \
   --from-literal=ANTHROPIC_API_KEY='…' \
   --from-literal=ADMIN_TOKEN="$(python -c 'import secrets; print(secrets.token_urlsafe(32))')" \
-  --from-literal=DATABASE_URL='postgresql+psycopg://tutor:…@postgres-postgresql:5432/tutor'
+  --from-literal=DATABASE_URL="postgresql+psycopg://tutor:${PG_PW}@postgres-postgresql:5432/tutor"
 
-helm upgrade --install hardad ./k8s/hardad -n tutor --create-namespace
+# 3. Install Postgres, then the app.
+helm upgrade --install postgres oci://registry-1.docker.io/bitnamicharts/postgresql \
+  -n tutor -f k8s/postgres-values.yaml
+helm upgrade --install hardad ./k8s/hardad -n tutor
 ```
 
 ## Local development

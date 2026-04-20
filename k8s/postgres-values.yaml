@@ -1,7 +1,17 @@
 auth:
   username: tutor
-  password: <REMOVED-ROTATED>
   database: tutor
+  # Password is NOT stored in this file. Create the Secret out-of-band with:
+  #
+  #   kubectl create secret generic postgres-auth -n tutor \
+  #     --from-literal=password='<tutor-user-password>' \
+  #     --from-literal=postgres-password='<admin-password>'
+  #
+  # The Bitnami chart reads the keys named below from this Secret.
+  existingSecret: postgres-auth
+  secretKeys:
+    userPasswordKey: password
+    adminPasswordKey: postgres-password
 
 primary:
   persistence:
