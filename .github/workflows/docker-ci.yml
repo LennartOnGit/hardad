@@ -17,10 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 1a. Run the test suite before spending build/scan budget. A red test
-      # run should fail the pipeline here rather than after a 2+ minute
-      # multi-arch buildx + Scout cycle.
-      - name: Install uv
+      # 1a. Run the test suite before spending build/scan budget.
         uses: astral-sh/setup-uv@v5
         with:
           python-version: "3.13"
@@ -59,8 +56,17 @@ jobs:
           tags: |
             type=raw,value=hardened
             type=sha,prefix=hardened-
-    
-      # 5. Build, attest, push 
+
+      # 4a. Resolve the DHI base image digest       
+      - name: Resolve base image digest
+        id: base
+        run: |
+          DIGEST=$(docker buildx imagetools inspect dhi.io/python:3.13 \
+                    --format '{{ .Manifest.Digest }}')
+          echo "digest=$DIGEST" >> "$GITHUB_OUTPUT"
+          echo "dhi.io/python:3.13 -> $DIGEST"
+
+      # 5. Build, attest, push
       - name: Build and push
         id: build
         uses: docker/build-push-action@v6
@@ -71,6 +77,9 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          annotations: |
+            manifest:org.opencontainers.image.base.name=dhi.io/python:3.13
+            manifest:org.opencontainers.image.base.digest=${{ steps.base.outputs.digest }}
           sbom: true
           provenance: mode=max
 
