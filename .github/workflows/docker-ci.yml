@@ -78,9 +78,14 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          # Scope `manifest-descriptor:` writes the annotation onto the
+          # per-platform descriptor inside the OCI index - which is where
+          # Scout's "Only hardened base images" policy reads from.
+          # `manifest:` silently disappears on multi-platform + SBOM/provenance
+          # builds; only `manifest-descriptor:` survives the attestation flow.
           annotations: |
-            manifest:org.opencontainers.image.base.name=dhi.io/python:3.13
-            manifest:org.opencontainers.image.base.digest=${{ steps.base.outputs.digest }}
+            manifest-descriptor:org.opencontainers.image.base.name=dhi.io/python:3.13
+            manifest-descriptor:org.opencontainers.image.base.digest=${{ steps.base.outputs.digest }}
           sbom: true
           provenance: mode=max
 
