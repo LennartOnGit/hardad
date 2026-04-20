@@ -18,6 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       # 1a. Run the test suite before spending build/scan budget.
+      - name: Run test suite
         uses: astral-sh/setup-uv@v5
         with:
           python-version: "3.13"
