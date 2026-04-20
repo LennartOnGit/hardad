@@ -139,34 +139,39 @@
       ]
     },
     {
-      "id": "08-scout",
-      "label": "08 Scout",
+      "id": "07-scout",
+      "label": "07 Scout",
       "blocks": [
-        { "type": "eyebrow", "text": "Step 8 - Docker Scout policy evaluation" },
-        { "type": "title", "text": "Three out of four passing. Honestly." },
+        { "type": "eyebrow", "text": "Docker Scout policy evaluation" },
+        { "type": "title", "text": "3 of 4 policies met. The 4th is an honest gap." },
+        { "type": "body", "html": "Scout ran as the last CI gate - after build, sign, and attestation, against the signed digest <br><strong>PASSED (3/4, 1 missing data)</strong>." },
         { "type": "table",
-          "headers": ["Policy", "Result"],
+          "headers": ["Policy", "Result", "Detail"],
           "rows": [
-            [ {"text":"Default non‑root user"},                        {"text":"✅ Compliant","class":"good"} ],
-            [ {"text":"No fixable critical vulnerabilities > 30 days"}, {"text":"✅ Compliant","class":"good"} ],
-            [ {"text":"Only hardened base images"},                    {"text":"⊘ No data","class":"mono"} ],
-            [ {"text":"Supply chain attestations"},                    {"text":"✅ Compliant","class":"good"} ]
+            [ {"text":"Default non‑root user"},                         {"text":"✅ Passed","class":"good"}, {"text":"Dockerfile's final stage runs as nonroot"} ],
+            [ {"text":"No fixable critical vulnerabilities > 30 days"}, {"text":"✅ Passed","class":"good"}, {"text":"The Critical CVE on CPython 3.13.13 isn't fixable upstream yet - policy excludes it"} ],
+            [ {"text":"Supply chain attestations"},                     {"text":"✅ Passed","class":"good"}, {"text":"SBOM + provenance both attached, 0 deviations"} ],
+            [ {"text":"Approved base images"},                          {"text":"⊘ No data","class":"mono"}, {"text":"Scout couldn't resolve the base - see below"} ]
           ]
         },
-        { "type": "body", "html": "The \"only hardened base images\" policy returns <em>no data</em> because Scout's base‑image detection can't trace through multi‑stage COPYs to identify DHI lineage. Honest talking point: <em>\"I use DHI but the automated detection couldn't verify it - in production I'd configure an exception or adjust the detection.\"</em>" }
+        { "type": "body", "html": "<strong>Why <em>Approved base images</em> returns <em>no data</em>.</strong> The allow-list is set to <code>dhi.io/*</code>, the image carries the OCI base-image annotations on both per-platform descriptors, and the Dockerfile has the matching config LABEL - none of it is what Scout reads. Scout resolves the base by layer-fingerprint matching against its internal catalog, and <code>dhi.io/python:3.13</code> isn't visible to a free Scout org without a DHI entitlement linked to the account. For now, the policy returns <em>No data</em> before any pattern match runs." },
+        { "type": "callout", "text": "Workflow still emits manifest-descriptor annotations - correct by OCI spec, readable by Kyverno/Conftest/custom admission checks:\n\n  index,manifest:      annotates the index only - platform descriptors stay empty\n  manifest-descriptor: lands on each platform's descriptor inside the OCI index" }
       ]
     },
     {
-      "id": "09-k3s",
-      "label": "09 k3s",
+      "id": "08-k3s",
+      "label": "08 k3s",
       "blocks": [
-        { "type": "eyebrow", "text": "Phase 1 · Steps 11–13 - Deployment" },
-        { "type": "title", "text": "k3s · Helm · Apache reverse proxy · NodePort." },
+        { "type": "eyebrow", "text": "Deployment" },
+        { "type": "title", "text": "k3s · Helm · Apache reverse proxy · NodePort" },
         { "type": "body", "html": "Bitnami PostgreSQL chart in a <code>tutor</code> namespace. Custom Helm chart for the app: 2 replicas, values.yaml + Kubernetes Secrets split, liveness/readiness probes, NodePort Service. Apache proxies <code>/docker_demo</code> to <code>192.168.177.30:30080</code>." },
+        { "type": "body", "html": "<strong>Substrate:</strong> k3s runs on a bare-metal <strong>Proxmox VE</strong> cluster at home - 2 compute nodes + 1 quorum/arbiter, arm64. The three k3s VMs (1 server, 2 agents) are scheduled across that hypervisor fabric; the <code>192.168.177.30</code> NodePort address is a VM NIC on the Proxmox LAN." },
         { "type": "arch", "items": [
           { "tag": "node",  "name": "Browser · https://lenie.selfhost.eu/docker_demo", "label": "TLS edge" },
           { "tag": "arrow", "text": "↓ Apache mod_proxy · HTTPS vhost" },
-          { "tag": "node",  "name": "Proxmox VM · 192.168.177.30:30080", "label": "NodePort" },
+          { "tag": "node",  "name": "Proxmox VE cluster · 2 compute + 1 arbiter · bare-metal arm64", "label": "hypervisor" },
+          { "tag": "arrow", "text": "↓ VM NIC · 192.168.177.30:30080" },
+          { "tag": "node",  "name": "k3s VM · NodePort", "label": "NodePort" },
           { "tag": "arrow", "text": "↓ kube‑proxy" },
           { "tag": "node",  "name": "Service: hardad (tutor ns)", "label": "ClusterIP" },
           { "tag": "arrow", "text": "↓ CoreDNS · Pod network (Flannel)" },
@@ -177,38 +182,21 @@
       ]
     },
     {
-      "id": "10-gaps",
-      "label": "10 Gaps",
-      "blocks": [
-        { "type": "eyebrow", "text": "Honest gaps" },
-        { "type": "title", "text": "What I haven't done, and how I'd frame it." },
-        { "type": "table",
-          "rows": [
-            [ {"text":"Multi‑node HA clusters"},   {"text":"Single‑node k3s only. Understand Deployments, Services, Helm, probes, Secrets. Haven't operated RBAC / network policies / production monitoring at scale."} ],
-            [ {"text":"Ingress controller"},       {"text":"Bypassed Traefik due to port‑80 conflict with Apache. Used NodePort + Apache proxy. Concept understood; rules not configured in practice."} ],
-            [ {"text":"Admission controller"},     {"text":"Planned as Phase 3 (Sigstore Policy Controller). Trust model understood, not yet implemented."} ],
-            [ {"text":"Multi‑arch CI"},            {"text":"Local arm64 builds deploy to the arm64 k3s cluster. CI produces amd64 for signing/policy demos. QEMU emulation is a known two‑line addition."} ],
-            [ {"text":"Voice + MCP features"},     {"text":"Phase 2. Infrastructure ready - Whisper (Mac‑native, MLX) + Piper TTS (sv_SE‑nst‑medium) reachable over LAN."} ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": "11-close",
-      "label": "11 Close",
+      "id": "09-close",
+      "label": "09 Close",
       "blocks": [
         { "type": "eyebrow", "text": "What this proves" },
         { "type": "title", "text": "I deploy platforms before applying for the role." },
-        { "type": "lede", "text": "Not slogans - tools I've used, errors I've debugged, and trade‑offs I can articulate. The full chain: Dockerfile, Kubernetes, CI pipeline, reverse proxy, database, application code. Signed, attested, policy‑gated, publicly deployed." },
+        { "type": "lede", "html": "Walked an image from <code>python:3.13-slim</code> to a signed, attested, policy‑gated artifact: measured the baseline, swapped to a Docker Hardened base for <strong>−51%</strong> size and a fresher CVE surface, attached SBOM + SLSA provenance at build time, signed the digest with cosign keyless under GitHub OIDC, gated the push on Docker Scout, and deployed the signed digest to k3s on bare‑metal Proxmox. Every piece of evidence rides with the image and is verifiable without trusting the builder." },
+        { "type": "body", "html": "What it shows: end‑to‑end ownership across container engineering, CI/CD, supply‑chain security, and platform operations" },
         { "type": "pills", "items": [
           { "text": "container engineering",   "variant": "ok" },
           { "text": "kubernetes operations",   "variant": "ok" },
           { "text": "supply‑chain security",   "variant": "ok" },
           { "text": "CI/CD",                   "variant": "ok" },
           { "text": "edge networking",         "variant": "ok" },
-          { "text": "honest about gaps",       "variant": "warn" }
         ]},
-        { "type": "body", "text": "↑ Scroll back up to try the tutor frontend." }
+        { "type": "body", "html": "<a href=\"#root\" onclick=\"event.preventDefault();window.scrollTo({top:0,behavior:'smooth'});\">↑ Scroll back up to try the tutor frontend.</a>" }
       ]
     }
   ]
