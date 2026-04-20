@@ -21,3 +21,4 @@ run_hardened.sh
 run_pg.sh
 buildx_sign_attest.sh
 docs/
+Scripts/

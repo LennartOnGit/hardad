@@ -1,10 +1,10 @@
-FROM dhi.io/python:3.12-dev AS builder
+FROM dhi.io/python:3.13-dev AS builder
 WORKDIR /app
 RUN pip install --no-cache-dir uv
 COPY uv.lock pyproject.toml ./
 RUN uv sync --frozen --no-dev
 
-FROM dhi.io/python:3.12
+FROM dhi.io/python:3.13
 WORKDIR /app
 COPY --from=builder --chown=nonroot:nonroot /app/.venv /app/.venv
 COPY --chown=nonroot:nonroot ./app ./app

@@ -5,7 +5,6 @@ from the categories:
   - "politik"        (Swedish politics)
   - "liv"            (Swedish life, cooking, cleaning, daily routine)
   - "hogtider"       (Swedish holidays and traditions)
-  - "internationellt" (international news in Swedish)
 
 Output a single JSON object with this exact shape and nothing else:
 

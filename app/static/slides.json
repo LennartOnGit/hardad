@@ -17,17 +17,84 @@
 
   "slides": [
     {
+      "id": "00-demo",
+      "label": "00 DEMO · Block cheatsheet",
+      "blocks": [
+        { "type": "eyebrow", "text": "DEMO · block cheatsheet (dev only)" },
+        { "type": "title", "hero": true, "text": "Every block type, rendered once." },
+        { "type": "lede", "html": "Each section below shows one <code>blockTypes</code> entry from <code>slides.json</code>. Delete this slide before shipping." },
+
+        { "type": "eyebrow", "text": "eyebrow" },
+        { "type": "body", "html": "<code>{ \"type\": \"eyebrow\", \"text\": \"...\" }</code> — small uppercase label above a title." },
+
+        { "type": "eyebrow", "text": "title (hero + normal)" },
+        { "type": "title", "hero": true, "text": "title · hero=true → H1" },
+        { "type": "title", "text": "title · hero omitted → H2" },
+        { "type": "body", "html": "<code>{ \"type\": \"title\", \"hero\": true, \"text\": \"...\" }</code> — set <code>hero</code> only on slide 01." },
+
+        { "type": "eyebrow", "text": "lede" },
+        { "type": "lede", "html": "lede · larger intro paragraph. Supports <code>text</code> or <code>html</code>." },
+
+        { "type": "eyebrow", "text": "body" },
+        { "type": "body", "html": "body · paragraph text, optional <code>html</code> for <em>inline</em> <strong>markup</strong>." },
+
+        { "type": "eyebrow", "text": "pills" },
+        { "type": "pills", "items": [
+          { "text": "variant omitted (neutral)" },
+          { "text": "variant: ok", "variant": "ok" },
+          { "text": "variant: warn", "variant": "warn" }
+        ]},
+
+        { "type": "eyebrow", "text": "stats" },
+        { "type": "stats", "items": [
+          { "k": "eyebrow (k)", "v": "big number (v)", "d": "footer (d)" },
+          { "k": "dClass: neg", "v": "−42%", "d": "red footer", "dClass": "neg" },
+          { "k": "vSmall: true", "v": "small value text", "d": "for longer strings", "vSmall": true }
+        ]},
+
+        { "type": "eyebrow", "text": "table" },
+        { "type": "table",
+          "headers": ["cell class", "example", "note"],
+          "rows": [
+            [ {"text":"(none)"},  {"text":"plain"},          {"text":"default body font"} ],
+            [ {"text":"mono"},    {"text":"3.5.5-1","class":"mono"}, {"text":"monospace","class":"mono"} ],
+            [ {"text":"good"},    {"text":"✅ pass","class":"good"}, {"text":"green","class":"good"} ],
+            [ {"text":"bad"},     {"text":"✗ fail","class":"bad"},   {"text":"red","class":"bad"} ]
+          ]
+        },
+        { "type": "body", "html": "Optional <code>maxWidth</code> (px number) constrains the table." },
+
+        { "type": "eyebrow", "text": "arch" },
+        { "type": "arch", "items": [
+          { "tag": "node",  "name": "node", "label": "label" },
+          { "tag": "arrow", "text": "↓ arrow between nodes" },
+          { "tag": "node",  "name": "indented node (indent: 24)", "label": "child", "indent": 24 }
+        ]},
+
+        { "type": "eyebrow", "text": "callout" },
+        { "type": "callout", "text": "callout · preformatted code block\n$ second line\n$ third line" },
+
+        { "type": "eyebrow", "text": "sc-layers" },
+        { "type": "sc-layers", "items": [
+          { "level": "L1", "color": "err",   "title": "color: err",   "desc": "red swatch" },
+          { "level": "L2", "color": "l-c2",  "title": "color: l-c2",  "desc": "amber swatch" },
+          { "level": "L3", "color": "ok",    "title": "color: ok",    "desc": "green swatch" }
+        ]}
+      ]
+    },
+    {
       "id": "01-title",
       "label": "01 Title",
       "blocks": [
-        { "type": "eyebrow", "text": "Build Journal · Demo for Docker SE application" },
-        { "type": "title", "hero": true, "text": "härdad — a Swedish tutor hardened all the way down." },
+
+        { "type": "title", "hero": true, "text": "härdad - a Swedish tutor hardened all the way down." },
         { "type": "lede", "html": "A conversational Swedish‑language tutor powered by Anthropic Claude. The application is the vehicle — the interesting part is everything <em>attached</em> to the image: signed evidence about how it was built, what's in it, and who vouches for it." },
         { "type": "pills", "items": [
           { "text": "Docker Hardened Images" },
           { "text": "Sigstore · cosign keyless" },
           { "text": "SLSA provenance" },
           { "text": "Docker Scout policy" },
+          { "text": "GitHub CI" },
           { "text": "k3s · Helm" }
         ]}
       ]
@@ -52,7 +119,7 @@
       "blocks": [
         { "type": "eyebrow", "text": "Phase 1 · Step 5 — Docker Hardened Images" },
         { "type": "title", "text": "-49% image, -65% Debian packages, -67% criticals." },
-        { "type": "body", "html": "Same Python dependency closure, byte‑for‑byte. Only the base layer changed: from <code>python:3.12-slim</code> to <code>dhi.io/python:3.12</code>." },
+        { "type": "body", "html": "Same Python dependency closure, byte‑for‑byte. Only the base layer changed: from <code>python:3.13-slim</code> to <code>dhi.io/python:3.13</code>." },
         { "type": "table",
           "headers": ["Metric", "Baseline", "Hardened", "Delta"],
           "rows": [
